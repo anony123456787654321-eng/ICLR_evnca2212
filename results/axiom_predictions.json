@@ -1,0 +1,100 @@
+{
+  "axioms": {
+    "A1": "permutation invariance",
+    "A2": "idempotence within a root",
+    "A3": "additivity across lineage-distinct roots",
+    "A4": "bounded state"
+  },
+  "multiplicity": 16,
+  "roots_two_hop": 2,
+  "dempster_mass": 0.5,
+  "rows": [
+    {
+      "arm": "lineage ledger",
+      "satisfies": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "violates": null,
+      "reason": "max-register join within a root, additive union across roots",
+      "measured": 1.0,
+      "predicted": 1.0,
+      "derivation": "a root contributes once however often delivered",
+      "abs_error": 0.0,
+      "agrees": true
+    },
+    {
+      "arm": "no defence",
+      "satisfies": [
+        "A1",
+        "A3"
+      ],
+      "violates": "A2",
+      "reason": "every arrival is credited, so credit tracks the delivery count",
+      "measured": 16.0,
+      "predicted": 16.0,
+      "derivation": "credits every arrival, so credit equals N",
+      "abs_error": 0.0,
+      "agrees": true
+    },
+    {
+      "arm": "surface deduplication",
+      "satisfies": [
+        "A1",
+        "A3",
+        "A4"
+      ],
+      "violates": "A2",
+      "reason": "idempotent only for byte-identical arrivals, so re-chunking defeats it",
+      "measured": 16.0,
+      "measured_range": [
+        4.82308292388916,
+        16.0
+      ]
+    },
+    {
+      "arm": "Dempster's rule",
+      "satisfies": [
+        "A1",
+        "A3",
+        "A4"
+      ],
+      "violates": "A2",
+      "reason": "combination is not idempotent, so repetition sharpens belief",
+      "measured": 1.9999696016311646,
+      "predicted": 2.0,
+      "derivation": "belief 1-(1-m)^N in units of one delivery saturates at 1/m",
+      "abs_error": 3.039836883544922e-05,
+      "agrees": true
+    },
+    {
+      "arm": "covariance intersection",
+      "satisfies": [
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "violates": "A3",
+      "reason": "convex weights sum to one, so distinct roots share one budget",
+      "measured": 0.5,
+      "predicted": 0.5,
+      "derivation": "convex weights summing to one divide across R roots, giving 1/R",
+      "abs_error": 0.0,
+      "agrees": true
+    },
+    {
+      "arm": "non-backtracking",
+      "satisfies": [
+        "A1",
+        "A3"
+      ],
+      "violates": "A2",
+      "reason": "removes the reverse message, which is cyclic feedback and not duplication",
+      "measured": 16.0
+    }
+  ],
+  "n_predictions": 4,
+  "n_agreeing": 4
+}

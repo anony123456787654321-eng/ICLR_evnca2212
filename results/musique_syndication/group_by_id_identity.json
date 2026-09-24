@@ -1,0 +1,22 @@
+{
+ "last/exact/1": 1.0,
+ "last/exact/2": 1.0,
+ "last/exact/4": 1.0,
+ "last/exact/8": 1.0,
+ "last/exact/16": 1.0,
+ "last/boilerplate/1": 1.0,
+ "last/boilerplate/2": 0.4533333333333333,
+ "last/boilerplate/4": 0.24,
+ "last/boilerplate/8": 0.11666666666666667,
+ "last/boilerplate/16": 0.08333333333333333,
+ "first/exact/1": 1.0,
+ "first/exact/2": 1.0,
+ "first/exact/4": 1.0,
+ "first/exact/8": 1.0,
+ "first/exact/16": 1.0,
+ "first/boilerplate/1": 1.0,
+ "first/boilerplate/2": 0.4533333333333333,
+ "first/boilerplate/4": 0.24,
+ "first/boilerplate/8": 0.11666666666666667,
+ "first/boilerplate/16": 0.08333333333333333
+}

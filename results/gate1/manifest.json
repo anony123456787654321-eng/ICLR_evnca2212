@@ -1,0 +1,23 @@
+{
+  "config": {
+    "capacity": 32,
+    "dim": 4,
+    "dry_run": false,
+    "n_cells": 16,
+    "n_unique": 12,
+    "out": "results/gate1",
+    "resume": "auto",
+    "seeds": 5,
+    "steps": 32
+  },
+  "experiment": "gate1",
+  "git_commit": "unavailable",
+  "git_dirty": true,
+  "hardware": {
+    "cpu_count": 10,
+    "numpy": "2.4.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.11.15",
+    "torch": null
+  }
+}

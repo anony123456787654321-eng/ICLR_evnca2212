@@ -1,0 +1,233 @@
+{
+  "checks": {
+    "cavity_exact_on_clean_tree": {
+      "pass": true,
+      "trace_ratio": 1.0000000000000002
+    },
+    "cavity_fails_on_duplicated_tree": {
+      "pass": true,
+      "trace_ratio": 13.664570886420044
+    },
+    "cavity_fails_on_long_loops": {
+      "pass": true,
+      "trace_ratio": 2.026867929674378
+    },
+    "ec_100_copies_add_zero": {
+      "pass": true,
+      "trace_ratio": 1.0000000000000002
+    },
+    "ec_converges_under_every_schedule": {
+      "never_converged": [],
+      "pass": true
+    },
+    "ec_invariant_to_schedule": {
+      "pass": true,
+      "per_schedule": {
+        "adversarial": 1.0,
+        "async": 1.0,
+        "delayed": 1.0,
+        "lossy": 1.0,
+        "repeating": 1.0,
+        "sync": 1.0
+      }
+    },
+    "ec_matches_centralised": {
+      "pass": true,
+      "prec_rel_error": 7.721736643909739e-16
+    },
+    "naive_overconfident_on_cycles": {
+      "pass": true,
+      "trace_ratio": 5432355101240.827
+    }
+  },
+  "steps_to_converge": {
+    "complete/adversarial": {
+      "diameter": 1,
+      "steps": 8
+    },
+    "complete/async": {
+      "diameter": 1,
+      "steps": 4
+    },
+    "complete/delayed": {
+      "diameter": 1,
+      "steps": 4
+    },
+    "complete/lossy": {
+      "diameter": 1,
+      "steps": 4
+    },
+    "complete/repeating": {
+      "diameter": 1,
+      "steps": 4
+    },
+    "complete/sync": {
+      "diameter": 1,
+      "steps": 2
+    },
+    "cycle/adversarial": {
+      "diameter": 8,
+      "steps": 32
+    },
+    "cycle/async": {
+      "diameter": 8,
+      "steps": 16
+    },
+    "cycle/delayed": {
+      "diameter": 8,
+      "steps": 32
+    },
+    "cycle/lossy": {
+      "diameter": 8,
+      "steps": 16
+    },
+    "cycle/repeating": {
+      "diameter": 8,
+      "steps": 16
+    },
+    "cycle/sync": {
+      "diameter": 8,
+      "steps": 8
+    },
+    "grid/adversarial": {
+      "diameter": 6,
+      "steps": 16
+    },
+    "grid/async": {
+      "diameter": 6,
+      "steps": 8
+    },
+    "grid/delayed": {
+      "diameter": 6,
+      "steps": 16
+    },
+    "grid/lossy": {
+      "diameter": 6,
+      "steps": 16
+    },
+    "grid/repeating": {
+      "diameter": 6,
+      "steps": 8
+    },
+    "grid/sync": {
+      "diameter": 6,
+      "steps": 4
+    },
+    "path/adversarial": {
+      "diameter": 15,
+      "steps": 32
+    },
+    "path/async": {
+      "diameter": 15,
+      "steps": 32
+    },
+    "path/delayed": {
+      "diameter": 15,
+      "steps": 32
+    },
+    "path/lossy": {
+      "diameter": 15,
+      "steps": 32
+    },
+    "path/repeating": {
+      "diameter": 15,
+      "steps": 16
+    },
+    "path/sync": {
+      "diameter": 15,
+      "steps": 8
+    },
+    "random/adversarial": {
+      "diameter": 4,
+      "steps": 32
+    },
+    "random/async": {
+      "diameter": 4,
+      "steps": 8
+    },
+    "random/delayed": {
+      "diameter": 4,
+      "steps": 16
+    },
+    "random/lossy": {
+      "diameter": 4,
+      "steps": 16
+    },
+    "random/repeating": {
+      "diameter": 4,
+      "steps": 16
+    },
+    "random/sync": {
+      "diameter": 4,
+      "steps": 4
+    },
+    "torus/adversarial": {
+      "diameter": 4,
+      "steps": 16
+    },
+    "torus/async": {
+      "diameter": 4,
+      "steps": 8
+    },
+    "torus/delayed": {
+      "diameter": 4,
+      "steps": 16
+    },
+    "torus/lossy": {
+      "diameter": 4,
+      "steps": 8
+    },
+    "torus/repeating": {
+      "diameter": 4,
+      "steps": 8
+    },
+    "torus/sync": {
+      "diameter": 4,
+      "steps": 4
+    },
+    "tree/adversarial": {
+      "diameter": 7,
+      "steps": 32
+    },
+    "tree/async": {
+      "diameter": 7,
+      "steps": 16
+    },
+    "tree/delayed": {
+      "diameter": 7,
+      "steps": 32
+    },
+    "tree/lossy": {
+      "diameter": 7,
+      "steps": 16
+    },
+    "tree/repeating": {
+      "diameter": 7,
+      "steps": 16
+    },
+    "tree/sync": {
+      "diameter": 7,
+      "steps": 8
+    }
+  },
+  "two_distinct_beats_hundred_copies": {
+    "bp_backtrack": 0.0,
+    "bp_cavity": 0.0,
+    "bp_trw": 0.0,
+    "cov_int": 0.85,
+    "ec_exact": 1.0,
+    "inv_cov_int": 0.8,
+    "mean_pool": 0.8,
+    "naive_sum": 0.0
+  },
+  "two_distinct_beats_hundred_copies_by_trace": {
+    "bp_backtrack": 0.0,
+    "bp_cavity": 0.0,
+    "bp_trw": 0.0,
+    "cov_int": 0.6,
+    "ec_exact": 1.0,
+    "inv_cov_int": 0.8,
+    "mean_pool": 0.6,
+    "naive_sum": 0.0
+  }
+}

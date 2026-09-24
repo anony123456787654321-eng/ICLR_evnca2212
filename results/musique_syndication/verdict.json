@@ -1,0 +1,1102 @@
+{
+  "preregistration": "docs/SYNDICATION_PREREGISTRATION.md",
+  "dose_response": {
+    "last/full/boilerplate/1": {
+      "gold_recall": 0.52,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/full/boilerplate/2": {
+      "gold_recall": 0.5333333333333333,
+      "misled": 0.013333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/full/boilerplate/4": {
+      "gold_recall": 0.5366666666666666,
+      "misled": 0.013333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/full/boilerplate/8": {
+      "gold_recall": 0.54,
+      "misled": 0.013333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/full/boilerplate/16": {
+      "gold_recall": 0.5266666666666666,
+      "misled": 0.013333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 478.3566666666667
+    },
+    "last/full/exact/1": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/full/exact/2": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/full/exact/4": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/full/exact/8": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/full/exact/16": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/canonical_dedup/boilerplate/1": {
+      "gold_recall": 0.52,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/canonical_dedup/boilerplate/2": {
+      "gold_recall": 0.49333333333333335,
+      "misled": 0.02666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 616.26
+    },
+    "last/canonical_dedup/boilerplate/4": {
+      "gold_recall": 0.48,
+      "misled": 0.056666666666666664,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 893.9066666666666
+    },
+    "last/canonical_dedup/boilerplate/8": {
+      "gold_recall": 0.47333333333333333,
+      "misled": 0.10666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1450.2
+    },
+    "last/canonical_dedup/boilerplate/16": {
+      "gold_recall": 0.3933333333333333,
+      "misled": 0.15333333333333332,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2582.786666666667
+    },
+    "last/canonical_dedup/exact/1": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/canonical_dedup/exact/2": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/canonical_dedup/exact/4": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/canonical_dedup/exact/8": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/canonical_dedup/exact/16": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/minhash_dedup/boilerplate/1": {
+      "gold_recall": 0.53,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 419.99
+    },
+    "last/minhash_dedup/boilerplate/2": {
+      "gold_recall": 0.5333333333333333,
+      "misled": 0.013333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 428.67
+    },
+    "last/minhash_dedup/boilerplate/4": {
+      "gold_recall": 0.5266666666666666,
+      "misled": 0.023333333333333334,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 432.19666666666666
+    },
+    "last/minhash_dedup/boilerplate/8": {
+      "gold_recall": 0.53,
+      "misled": 0.02,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 438.73333333333335
+    },
+    "last/minhash_dedup/boilerplate/16": {
+      "gold_recall": 0.5266666666666666,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 448.2
+    },
+    "last/minhash_dedup/exact/1": {
+      "gold_recall": 0.55,
+      "misled": 0.0033333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 386.26666666666665
+    },
+    "last/minhash_dedup/exact/2": {
+      "gold_recall": 0.55,
+      "misled": 0.0033333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 386.26666666666665
+    },
+    "last/minhash_dedup/exact/4": {
+      "gold_recall": 0.55,
+      "misled": 0.0033333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 386.26666666666665
+    },
+    "last/minhash_dedup/exact/8": {
+      "gold_recall": 0.55,
+      "misled": 0.0033333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 386.26666666666665
+    },
+    "last/minhash_dedup/exact/16": {
+      "gold_recall": 0.55,
+      "misled": 0.0033333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 386.26666666666665
+    },
+    "last/simhash_dedup/boilerplate/1": {
+      "gold_recall": 0.5233333333333333,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 469.06
+    },
+    "last/simhash_dedup/boilerplate/2": {
+      "gold_recall": 0.5033333333333333,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 558.4366666666666
+    },
+    "last/simhash_dedup/boilerplate/4": {
+      "gold_recall": 0.49,
+      "misled": 0.04,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 719.3066666666666
+    },
+    "last/simhash_dedup/boilerplate/8": {
+      "gold_recall": 0.48333333333333334,
+      "misled": 0.06666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 988.2333333333333
+    },
+    "last/simhash_dedup/boilerplate/16": {
+      "gold_recall": 0.4633333333333333,
+      "misled": 0.09666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1475.1033333333332
+    },
+    "last/simhash_dedup/exact/1": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 454.37333333333333
+    },
+    "last/simhash_dedup/exact/2": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 454.37333333333333
+    },
+    "last/simhash_dedup/exact/4": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 454.37333333333333
+    },
+    "last/simhash_dedup/exact/8": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 454.37333333333333
+    },
+    "last/simhash_dedup/exact/16": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 454.37333333333333
+    },
+    "last/plain/boilerplate/1": {
+      "gold_recall": 0.52,
+      "misled": 0.016666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.43666666666667
+    },
+    "last/plain/boilerplate/2": {
+      "gold_recall": 0.49333333333333335,
+      "misled": 0.02666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 616.26
+    },
+    "last/plain/boilerplate/4": {
+      "gold_recall": 0.48,
+      "misled": 0.056666666666666664,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 893.9066666666666
+    },
+    "last/plain/boilerplate/8": {
+      "gold_recall": 0.47333333333333333,
+      "misled": 0.10666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1450.2
+    },
+    "last/plain/boilerplate/16": {
+      "gold_recall": 0.3933333333333333,
+      "misled": 0.15333333333333332,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2582.786666666667
+    },
+    "last/plain/exact/1": {
+      "gold_recall": 0.5133333333333333,
+      "misled": 0.01,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "last/plain/exact/2": {
+      "gold_recall": 0.49333333333333335,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 590.4066666666666
+    },
+    "last/plain/exact/4": {
+      "gold_recall": 0.4866666666666667,
+      "misled": 0.056666666666666664,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 842.2133333333334
+    },
+    "last/plain/exact/8": {
+      "gold_recall": 0.43333333333333335,
+      "misled": 0.12,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1346.8266666666666
+    },
+    "last/plain/exact/16": {
+      "gold_recall": 0.39666666666666667,
+      "misled": 0.13666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2362.0533333333333
+    },
+    "first/full/boilerplate/1": {
+      "gold_recall": 0.5766666666666667,
+      "misled": 0.04,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/full/boilerplate/2": {
+      "gold_recall": 0.5666666666666667,
+      "misled": 0.043333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/full/boilerplate/4": {
+      "gold_recall": 0.57,
+      "misled": 0.043333333333333335,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/full/boilerplate/8": {
+      "gold_recall": 0.57,
+      "misled": 0.04666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/full/boilerplate/16": {
+      "gold_recall": 0.5733333333333334,
+      "misled": 0.04666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 478.3433333333333
+    },
+    "first/full/exact/1": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/full/exact/2": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/full/exact/4": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/full/exact/8": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/full/exact/16": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/canonical_dedup/boilerplate/1": {
+      "gold_recall": 0.5766666666666667,
+      "misled": 0.04,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/canonical_dedup/boilerplate/2": {
+      "gold_recall": 0.47333333333333333,
+      "misled": 0.1,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 616.2466666666667
+    },
+    "first/canonical_dedup/boilerplate/4": {
+      "gold_recall": 0.52,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 893.8933333333333
+    },
+    "first/canonical_dedup/boilerplate/8": {
+      "gold_recall": 0.5366666666666666,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1450.1866666666667
+    },
+    "first/canonical_dedup/boilerplate/16": {
+      "gold_recall": 0.5433333333333333,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2582.7733333333335
+    },
+    "first/canonical_dedup/exact/1": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/canonical_dedup/exact/2": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/canonical_dedup/exact/4": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/canonical_dedup/exact/8": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/canonical_dedup/exact/16": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/minhash_dedup/boilerplate/1": {
+      "gold_recall": 0.37666666666666665,
+      "misled": 0.13666666666666666,
+      "true_final_in_context": 0.6966666666666667,
+      "n_context_tokens": 423.66333333333336
+    },
+    "first/minhash_dedup/boilerplate/2": {
+      "gold_recall": 0.36666666666666664,
+      "misled": 0.14333333333333334,
+      "true_final_in_context": 0.6966666666666667,
+      "n_context_tokens": 425.8566666666667
+    },
+    "first/minhash_dedup/boilerplate/4": {
+      "gold_recall": 0.36666666666666664,
+      "misled": 0.14333333333333334,
+      "true_final_in_context": 0.6966666666666667,
+      "n_context_tokens": 428.28
+    },
+    "first/minhash_dedup/boilerplate/8": {
+      "gold_recall": 0.37,
+      "misled": 0.14333333333333334,
+      "true_final_in_context": 0.6966666666666667,
+      "n_context_tokens": 433.6566666666667
+    },
+    "first/minhash_dedup/boilerplate/16": {
+      "gold_recall": 0.36666666666666664,
+      "misled": 0.14666666666666667,
+      "true_final_in_context": 0.6966666666666667,
+      "n_context_tokens": 440.69
+    },
+    "first/minhash_dedup/exact/1": {
+      "gold_recall": 0.26666666666666666,
+      "misled": 0.22,
+      "true_final_in_context": 0.4766666666666667,
+      "n_context_tokens": 386.2033333333333
+    },
+    "first/minhash_dedup/exact/2": {
+      "gold_recall": 0.26666666666666666,
+      "misled": 0.22,
+      "true_final_in_context": 0.4766666666666667,
+      "n_context_tokens": 386.2033333333333
+    },
+    "first/minhash_dedup/exact/4": {
+      "gold_recall": 0.26666666666666666,
+      "misled": 0.22,
+      "true_final_in_context": 0.4766666666666667,
+      "n_context_tokens": 386.2033333333333
+    },
+    "first/minhash_dedup/exact/8": {
+      "gold_recall": 0.26666666666666666,
+      "misled": 0.22,
+      "true_final_in_context": 0.4766666666666667,
+      "n_context_tokens": 386.2033333333333
+    },
+    "first/minhash_dedup/exact/16": {
+      "gold_recall": 0.26666666666666666,
+      "misled": 0.22,
+      "true_final_in_context": 0.4766666666666667,
+      "n_context_tokens": 386.2033333333333
+    },
+    "first/simhash_dedup/boilerplate/1": {
+      "gold_recall": 0.5533333333333333,
+      "misled": 0.04,
+      "true_final_in_context": 0.9633333333333334,
+      "n_context_tokens": 469.5233333333333
+    },
+    "first/simhash_dedup/boilerplate/2": {
+      "gold_recall": 0.47,
+      "misled": 0.09666666666666666,
+      "true_final_in_context": 0.9566666666666667,
+      "n_context_tokens": 558.1166666666667
+    },
+    "first/simhash_dedup/boilerplate/4": {
+      "gold_recall": 0.49,
+      "misled": 0.08666666666666667,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 715.2366666666667
+    },
+    "first/simhash_dedup/boilerplate/8": {
+      "gold_recall": 0.51,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 0.9433333333333334,
+      "n_context_tokens": 978.96
+    },
+    "first/simhash_dedup/boilerplate/16": {
+      "gold_recall": 0.49666666666666665,
+      "misled": 0.09666666666666666,
+      "true_final_in_context": 0.9333333333333333,
+      "n_context_tokens": 1463.22
+    },
+    "first/simhash_dedup/exact/1": {
+      "gold_recall": 0.5566666666666666,
+      "misled": 0.03333333333333333,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 454.3933333333333
+    },
+    "first/simhash_dedup/exact/2": {
+      "gold_recall": 0.5566666666666666,
+      "misled": 0.03333333333333333,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 454.3933333333333
+    },
+    "first/simhash_dedup/exact/4": {
+      "gold_recall": 0.5566666666666666,
+      "misled": 0.03333333333333333,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 454.3933333333333
+    },
+    "first/simhash_dedup/exact/8": {
+      "gold_recall": 0.5566666666666666,
+      "misled": 0.03333333333333333,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 454.3933333333333
+    },
+    "first/simhash_dedup/exact/16": {
+      "gold_recall": 0.5566666666666666,
+      "misled": 0.03333333333333333,
+      "true_final_in_context": 0.9533333333333334,
+      "n_context_tokens": 454.3933333333333
+    },
+    "first/plain/boilerplate/1": {
+      "gold_recall": 0.5766666666666667,
+      "misled": 0.04,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 477.42333333333335
+    },
+    "first/plain/boilerplate/2": {
+      "gold_recall": 0.47333333333333333,
+      "misled": 0.1,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 616.2466666666667
+    },
+    "first/plain/boilerplate/4": {
+      "gold_recall": 0.52,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 893.8933333333333
+    },
+    "first/plain/boilerplate/8": {
+      "gold_recall": 0.5366666666666666,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1450.1866666666667
+    },
+    "first/plain/boilerplate/16": {
+      "gold_recall": 0.5433333333333333,
+      "misled": 0.07666666666666666,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2582.7733333333335
+    },
+    "first/plain/exact/1": {
+      "gold_recall": 0.5966666666666667,
+      "misled": 0.03,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 464.50333333333333
+    },
+    "first/plain/exact/2": {
+      "gold_recall": 0.52,
+      "misled": 0.07333333333333333,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 590.4066666666666
+    },
+    "first/plain/exact/4": {
+      "gold_recall": 0.5766666666666667,
+      "misled": 0.06666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 842.2133333333334
+    },
+    "first/plain/exact/8": {
+      "gold_recall": 0.5866666666666667,
+      "misled": 0.04666666666666667,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 1346.8266666666666
+    },
+    "first/plain/exact/16": {
+      "gold_recall": 0.5733333333333334,
+      "misled": 0.056666666666666664,
+      "true_final_in_context": 1.0,
+      "n_context_tokens": 2362.0533333333333
+    }
+  },
+  "contrasts": {
+    "last/exact/1/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-minhash_dedup/gold_recall": {
+      "diff": -0.03666666666666667,
+      "ci_low": -0.06666666666666667,
+      "ci_high": -0.006666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/exact/1/full-minhash_dedup/misled": {
+      "diff": 0.006666666666666667,
+      "ci_low": 0.0,
+      "ci_high": 0.016666666666666666,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-simhash_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": -0.013333333333333334,
+      "ci_high": 0.013333333333333334,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-simhash_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-plain/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/1/full-plain/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-minhash_dedup/gold_recall": {
+      "diff": -0.03666666666666667,
+      "ci_low": -0.06666666666666667,
+      "ci_high": -0.006666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/exact/16/full-minhash_dedup/misled": {
+      "diff": 0.006666666666666667,
+      "ci_low": 0.0,
+      "ci_high": 0.016666666666666666,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-simhash_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": -0.013333333333333334,
+      "ci_high": 0.013333333333333334,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-simhash_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/exact/16/full-plain/gold_recall": {
+      "diff": 0.11666666666666667,
+      "ci_low": 0.07333333333333333,
+      "ci_high": 0.16,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/exact/16/full-plain/misled": {
+      "diff": -0.12666666666666668,
+      "ci_low": -0.16666666666666666,
+      "ci_high": -0.09,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/1/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-minhash_dedup/gold_recall": {
+      "diff": -0.01,
+      "ci_low": -0.03333333333333333,
+      "ci_high": 0.01,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-minhash_dedup/misled": {
+      "diff": 0.006666666666666667,
+      "ci_low": 0.0,
+      "ci_high": 0.016666666666666666,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-simhash_dedup/gold_recall": {
+      "diff": -0.0033333333333333335,
+      "ci_low": -0.01,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-simhash_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-plain/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/1/full-plain/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/16/full-canonical_dedup/gold_recall": {
+      "diff": 0.13333333333333333,
+      "ci_low": 0.08333333333333333,
+      "ci_high": 0.18333333333333332,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/16/full-canonical_dedup/misled": {
+      "diff": -0.14,
+      "ci_low": -0.18,
+      "ci_high": -0.1,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/16/full-minhash_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": -0.023333333333333334,
+      "ci_high": 0.023333333333333334,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/16/full-minhash_dedup/misled": {
+      "diff": -0.0033333333333333335,
+      "ci_low": -0.01,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "last/boilerplate/16/full-simhash_dedup/gold_recall": {
+      "diff": 0.06333333333333334,
+      "ci_low": 0.02,
+      "ci_high": 0.10666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/16/full-simhash_dedup/misled": {
+      "diff": -0.08333333333333333,
+      "ci_low": -0.11666666666666667,
+      "ci_high": -0.05,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/16/full-plain/gold_recall": {
+      "diff": 0.13333333333333333,
+      "ci_low": 0.08333333333333333,
+      "ci_high": 0.18333333333333332,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "last/boilerplate/16/full-plain/misled": {
+      "diff": -0.14,
+      "ci_low": -0.18,
+      "ci_high": -0.1,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/1/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/1/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/1/full-minhash_dedup/gold_recall": {
+      "diff": 0.33,
+      "ci_low": 0.27666666666666667,
+      "ci_high": 0.38333333333333336,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/1/full-minhash_dedup/misled": {
+      "diff": -0.19,
+      "ci_low": -0.23666666666666666,
+      "ci_high": -0.14666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/1/full-simhash_dedup/gold_recall": {
+      "diff": 0.04,
+      "ci_low": 0.02,
+      "ci_high": 0.06333333333333334,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/1/full-simhash_dedup/misled": {
+      "diff": -0.0033333333333333335,
+      "ci_low": -0.01,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/1/full-plain/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/1/full-plain/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/16/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/16/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/16/full-minhash_dedup/gold_recall": {
+      "diff": 0.33,
+      "ci_low": 0.27666666666666667,
+      "ci_high": 0.38333333333333336,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/16/full-minhash_dedup/misled": {
+      "diff": -0.19,
+      "ci_low": -0.23666666666666666,
+      "ci_high": -0.14666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/16/full-simhash_dedup/gold_recall": {
+      "diff": 0.04,
+      "ci_low": 0.02,
+      "ci_high": 0.06333333333333334,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/exact/16/full-simhash_dedup/misled": {
+      "diff": -0.0033333333333333335,
+      "ci_low": -0.01,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/16/full-plain/gold_recall": {
+      "diff": 0.023333333333333334,
+      "ci_low": -0.02,
+      "ci_high": 0.06666666666666667,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/exact/16/full-plain/misled": {
+      "diff": -0.02666666666666667,
+      "ci_low": -0.05,
+      "ci_high": -0.0033333333333333335,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/1/full-canonical_dedup/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/1/full-canonical_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/1/full-minhash_dedup/gold_recall": {
+      "diff": 0.2,
+      "ci_low": 0.15666666666666668,
+      "ci_high": 0.24666666666666667,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/1/full-minhash_dedup/misled": {
+      "diff": -0.09666666666666666,
+      "ci_low": -0.13333333333333333,
+      "ci_high": -0.06333333333333334,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/1/full-simhash_dedup/gold_recall": {
+      "diff": 0.023333333333333334,
+      "ci_low": 0.006666666666666667,
+      "ci_high": 0.043333333333333335,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/1/full-simhash_dedup/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/1/full-plain/gold_recall": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/1/full-plain/misled": {
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/16/full-canonical_dedup/gold_recall": {
+      "diff": 0.03,
+      "ci_low": -0.013333333333333334,
+      "ci_high": 0.07333333333333333,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/16/full-canonical_dedup/misled": {
+      "diff": -0.03,
+      "ci_low": -0.06,
+      "ci_high": -0.0033333333333333335,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/16/full-minhash_dedup/gold_recall": {
+      "diff": 0.20666666666666667,
+      "ci_low": 0.16,
+      "ci_high": 0.25666666666666665,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/16/full-minhash_dedup/misled": {
+      "diff": -0.1,
+      "ci_low": -0.14,
+      "ci_high": -0.06333333333333334,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/16/full-simhash_dedup/gold_recall": {
+      "diff": 0.07666666666666666,
+      "ci_low": 0.02666666666666667,
+      "ci_high": 0.12666666666666668,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/16/full-simhash_dedup/misled": {
+      "diff": -0.05,
+      "ci_low": -0.08333333333333333,
+      "ci_high": -0.02,
+      "n": 300,
+      "excludes_zero": true
+    },
+    "first/boilerplate/16/full-plain/gold_recall": {
+      "diff": 0.03,
+      "ci_low": -0.013333333333333334,
+      "ci_high": 0.07333333333333333,
+      "n": 300,
+      "excludes_zero": false
+    },
+    "first/boilerplate/16/full-plain/misled": {
+      "diff": -0.03,
+      "ci_low": -0.056666666666666664,
+      "ci_high": -0.0033333333333333335,
+      "n": 300,
+      "excludes_zero": true
+    }
+  },
+  "predictions": {
+    "P1": {
+      "claim": "plain gold falls from m=1 to m=16, exact, last",
+      "diff": -0.11666666666666667,
+      "ci_low": -0.16,
+      "ci_high": -0.07333333333333333,
+      "n": 300,
+      "excludes_zero": true,
+      "holds": true
+    },
+    "P2": {
+      "claim": "full minus plain gold at m=16, exact, last",
+      "diff": 0.11666666666666667,
+      "ci_low": 0.07333333333333333,
+      "ci_high": 0.16,
+      "n": 300,
+      "excludes_zero": true,
+      "holds": true
+    },
+    "P3": {
+      "claim": "plain misled rises from m=1 to m=16",
+      "diff": 0.12666666666666668,
+      "ci_low": 0.09,
+      "ci_high": 0.16666666666666666,
+      "n": 300,
+      "excludes_zero": true,
+      "holds": true
+    },
+    "P4": {
+      "claim": "canonical close to plain, boilerplate m=16",
+      "diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 300,
+      "excludes_zero": false,
+      "holds": true
+    },
+    "P5": {
+      "claim": "full minus minhash gold at m=1, exact, first",
+      "diff": 0.33,
+      "ci_low": 0.27666666666666667,
+      "ci_high": 0.38333333333333336,
+      "n": 300,
+      "excludes_zero": true,
+      "holds": true
+    }
+  }
+}

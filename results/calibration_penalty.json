@@ -1,0 +1,63 @@
+{
+  "formula": "KL(N) = 0.5 * (N - 1 - ln N), nats",
+  "free_parameters": 0,
+  "predicted_by_multiplicity": {
+    "1": 0.0,
+    "2": 0.15342640972002736,
+    "4": 0.8068528194400547,
+    "8": 2.460279229160082,
+    "16": 6.113705638880109
+  },
+  "credit_curves": {
+    "mpnn_ec": {
+      "1": 1.0,
+      "2": 1.0,
+      "4": 1.0,
+      "8": 1.0,
+      "16": 1.0
+    },
+    "mpnn_plain": {
+      "1": 1.0,
+      "2": 2.0,
+      "4": 4.0,
+      "8": 8.0,
+      "16": 16.0
+    },
+    "nonbacktracking_mpnn": {
+      "1": 1.0,
+      "2": 2.0,
+      "4": 4.0,
+      "8": 8.0,
+      "16": 16.0
+    },
+    "nca_ec": {
+      "1": 1.0,
+      "2": 1.007227842000351,
+      "4": 0.9966577305291427,
+      "8": 0.9951831010767476,
+      "16": 0.9931928017224299
+    },
+    "nca_plain": {
+      "1": 1.0,
+      "2": 1.9178868349614449,
+      "4": 3.590394949389465,
+      "8": 7.724481197422369,
+      "16": 14.279220017592325
+    }
+  },
+  "premise_exactly_linear": {
+    "mpnn_ec": false,
+    "mpnn_plain": true,
+    "nonbacktracking_mpnn": true,
+    "nca_ec": false,
+    "nca_plain": false
+  },
+  "measured_excess_nll_at_16": 6.144,
+  "measured_interval": [
+    3.501,
+    8.787
+  ],
+  "predicted_at_16": 6.113705638880109,
+  "relative_error": 0.004930722838523913,
+  "prediction_inside_measured_interval": true
+}

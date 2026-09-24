@@ -1,0 +1,1013 @@
+{
+  "benchmark": "synthetic evidence graph",
+  "spec": {
+    "cells": 8,
+    "roots": 3,
+    "topology": "path",
+    "steps": 8,
+    "iters": 4000,
+    "batch_size": 16
+  },
+  "rows": [
+    {
+      "variant": "mpnn_ec",
+      "family": "mpnn",
+      "seed": 0,
+      "params": 82850,
+      "train_seconds": 35.031628370285034,
+      "task": {
+        "clean": {
+          "rmse": 0.8017845749855042,
+          "nll": 4.87796688079834,
+          "coverage": 0.845703125,
+          "mean_precision": 15.808832168579102
+        },
+        "cycle": {
+          "rmse": 0.8020697236061096,
+          "nll": 4.8810577392578125,
+          "coverage": 0.84375,
+          "mean_precision": 15.808832168579102
+        },
+        "duplicate": {
+          "rmse": 0.8287020921707153,
+          "nll": 5.647906303405762,
+          "coverage": 0.81640625,
+          "mean_precision": 15.808832168579102
+        },
+        "reordered": {
+          "rmse": 0.8017845749855042,
+          "nll": 4.87796688079834,
+          "coverage": 0.845703125,
+          "mean_precision": 15.808832168579102
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0,
+        "16": 1.0
+      }
+    },
+    {
+      "variant": "mpnn_plain",
+      "family": "mpnn",
+      "seed": 0,
+      "params": 82850,
+      "train_seconds": 33.70472073554993,
+      "task": {
+        "clean": {
+          "rmse": 0.8018093109130859,
+          "nll": 4.8780927658081055,
+          "coverage": 0.845703125,
+          "mean_precision": 15.808647155761719
+        },
+        "cycle": {
+          "rmse": 0.8020930290222168,
+          "nll": 4.881237030029297,
+          "coverage": 0.84375,
+          "mean_precision": 15.808647155761719
+        },
+        "duplicate": {
+          "rmse": 0.8287315368652344,
+          "nll": 12.842333793640137,
+          "coverage": 0.515625,
+          "mean_precision": 51.234588623046875
+        },
+        "reordered": {
+          "rmse": 0.8018093109130859,
+          "nll": 4.8780927658081055,
+          "coverage": 0.845703125,
+          "mean_precision": 15.808647155761719
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nonbacktracking_mpnn",
+      "family": "nonbacktracking",
+      "seed": 0,
+      "params": 82850,
+      "train_seconds": 36.142507791519165,
+      "task": {
+        "clean": {
+          "rmse": 0.8016917109489441,
+          "nll": 4.87235164642334,
+          "coverage": 0.841796875,
+          "mean_precision": 15.808647155761719
+        },
+        "cycle": {
+          "rmse": 0.8006040453910828,
+          "nll": 4.860018730163574,
+          "coverage": 0.84375,
+          "mean_precision": 15.808647155761719
+        },
+        "duplicate": {
+          "rmse": 0.813010036945343,
+          "nll": 12.189828872680664,
+          "coverage": 0.509765625,
+          "mean_precision": 51.234588623046875
+        },
+        "reordered": {
+          "rmse": 0.8016917109489441,
+          "nll": 4.87235164642334,
+          "coverage": 0.841796875,
+          "mean_precision": 15.808647155761719
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nca_ec",
+      "family": "nca",
+      "seed": 0,
+      "params": 82816,
+      "train_seconds": 53.98850727081299,
+      "task": {
+        "clean": {
+          "rmse": 0.8728095889091492,
+          "nll": 5.074963569641113,
+          "coverage": 0.873046875,
+          "mean_precision": 10.585575103759766
+        },
+        "cycle": {
+          "rmse": 0.8129602670669556,
+          "nll": 4.682661056518555,
+          "coverage": 0.873046875,
+          "mean_precision": 12.314882278442383
+        },
+        "duplicate": {
+          "rmse": 0.8049187660217285,
+          "nll": 4.644877910614014,
+          "coverage": 0.875,
+          "mean_precision": 12.31374740600586
+        },
+        "reordered": {
+          "rmse": 0.862011194229126,
+          "nll": 4.9592061042785645,
+          "coverage": 0.88671875,
+          "mean_precision": 10.667459487915039
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0109127387346195,
+        "4": 0.9923918087144799,
+        "8": 0.9891931485545767,
+        "16": 0.9920748521743792
+      }
+    },
+    {
+      "variant": "nca_plain",
+      "family": "nca",
+      "seed": 0,
+      "params": 82816,
+      "train_seconds": 50.38561177253723,
+      "task": {
+        "clean": {
+          "rmse": 0.8808832764625549,
+          "nll": 5.280521869659424,
+          "coverage": 0.86328125,
+          "mean_precision": 11.951740264892578
+        },
+        "cycle": {
+          "rmse": 0.822270929813385,
+          "nll": 4.949561595916748,
+          "coverage": 0.85546875,
+          "mean_precision": 14.119026184082031
+        },
+        "duplicate": {
+          "rmse": 0.8237811326980591,
+          "nll": 8.520286560058594,
+          "coverage": 0.59765625,
+          "mean_precision": 34.53620529174805
+        },
+        "reordered": {
+          "rmse": 0.8711826205253601,
+          "nll": 5.1823015213012695,
+          "coverage": 0.87109375,
+          "mean_precision": 12.156611442565918
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.7606550424896834,
+        "4": 3.521310084979367,
+        "8": 7.772496697059159,
+        "16": 12.677029473649872
+      }
+    },
+    {
+      "variant": "mpnn_ec",
+      "family": "mpnn",
+      "seed": 1,
+      "params": 82850,
+      "train_seconds": 35.42299246788025,
+      "task": {
+        "clean": {
+          "rmse": 0.693401038646698,
+          "nll": 3.9679975509643555,
+          "coverage": 0.890625,
+          "mean_precision": 15.3012113571167
+        },
+        "cycle": {
+          "rmse": 0.6922847628593445,
+          "nll": 3.9635236263275146,
+          "coverage": 0.890625,
+          "mean_precision": 15.3012113571167
+        },
+        "duplicate": {
+          "rmse": 0.7639737725257874,
+          "nll": 5.853113174438477,
+          "coverage": 0.8828125,
+          "mean_precision": 15.3012113571167
+        },
+        "reordered": {
+          "rmse": 0.693401038646698,
+          "nll": 3.9679975509643555,
+          "coverage": 0.890625,
+          "mean_precision": 15.3012113571167
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0,
+        "16": 1.0
+      }
+    },
+    {
+      "variant": "mpnn_plain",
+      "family": "mpnn",
+      "seed": 1,
+      "params": 82850,
+      "train_seconds": 34.243114709854126,
+      "task": {
+        "clean": {
+          "rmse": 0.6934300661087036,
+          "nll": 3.9683187007904053,
+          "coverage": 0.890625,
+          "mean_precision": 15.301344871520996
+        },
+        "cycle": {
+          "rmse": 0.6923092603683472,
+          "nll": 3.963810443878174,
+          "coverage": 0.890625,
+          "mean_precision": 15.301344871520996
+        },
+        "duplicate": {
+          "rmse": 0.7639923691749573,
+          "nll": 14.092679977416992,
+          "coverage": 0.544921875,
+          "mean_precision": 49.205379486083984
+        },
+        "reordered": {
+          "rmse": 0.6934300661087036,
+          "nll": 3.9683187007904053,
+          "coverage": 0.890625,
+          "mean_precision": 15.301344871520996
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nonbacktracking_mpnn",
+      "family": "nonbacktracking",
+      "seed": 1,
+      "params": 82850,
+      "train_seconds": 36.38282489776611,
+      "task": {
+        "clean": {
+          "rmse": 0.6902403235435486,
+          "nll": 3.957746982574463,
+          "coverage": 0.90625,
+          "mean_precision": 15.301344871520996
+        },
+        "cycle": {
+          "rmse": 0.6890086531639099,
+          "nll": 3.9608144760131836,
+          "coverage": 0.90625,
+          "mean_precision": 15.301344871520996
+        },
+        "duplicate": {
+          "rmse": 0.7429517507553101,
+          "nll": 12.856176376342773,
+          "coverage": 0.546875,
+          "mean_precision": 49.205379486083984
+        },
+        "reordered": {
+          "rmse": 0.6902403235435486,
+          "nll": 3.957746982574463,
+          "coverage": 0.90625,
+          "mean_precision": 15.301344871520996
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nca_ec",
+      "family": "nca",
+      "seed": 1,
+      "params": 82816,
+      "train_seconds": 54.13860058784485,
+      "task": {
+        "clean": {
+          "rmse": 0.7543352842330933,
+          "nll": 4.291647911071777,
+          "coverage": 0.9140625,
+          "mean_precision": 11.109251022338867
+        },
+        "cycle": {
+          "rmse": 0.707602858543396,
+          "nll": 4.073379993438721,
+          "coverage": 0.91015625,
+          "mean_precision": 12.20497989654541
+        },
+        "duplicate": {
+          "rmse": 0.6973065733909607,
+          "nll": 3.9494709968566895,
+          "coverage": 0.912109375,
+          "mean_precision": 12.80317211151123
+        },
+        "reordered": {
+          "rmse": 0.7656426429748535,
+          "nll": 4.272336959838867,
+          "coverage": 0.90625,
+          "mean_precision": 11.165637969970703
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0045208484913182,
+        "4": 0.9998252676467035,
+        "8": 1.0134741960766687,
+        "16": 1.011259842740882
+      }
+    },
+    {
+      "variant": "nca_plain",
+      "family": "nca",
+      "seed": 1,
+      "params": 82816,
+      "train_seconds": 50.808900356292725,
+      "task": {
+        "clean": {
+          "rmse": 0.7537848949432373,
+          "nll": 4.338930130004883,
+          "coverage": 0.892578125,
+          "mean_precision": 12.422481536865234
+        },
+        "cycle": {
+          "rmse": 0.7060080170631409,
+          "nll": 4.122010707855225,
+          "coverage": 0.892578125,
+          "mean_precision": 13.98165512084961
+        },
+        "duplicate": {
+          "rmse": 0.6697066426277161,
+          "nll": 6.171931743621826,
+          "coverage": 0.771484375,
+          "mean_precision": 38.32513427734375
+        },
+        "reordered": {
+          "rmse": 0.7665545344352722,
+          "nll": 4.315536022186279,
+          "coverage": 0.892578125,
+          "mean_precision": 12.551542282104492
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 3.6201845498268868,
+        "8": 8.0,
+        "16": 15.616894612335699
+      }
+    },
+    {
+      "variant": "mpnn_ec",
+      "family": "mpnn",
+      "seed": 2,
+      "params": 82850,
+      "train_seconds": 35.62512922286987,
+      "task": {
+        "clean": {
+          "rmse": 0.6011372804641724,
+          "nll": 3.408412456512451,
+          "coverage": 0.908203125,
+          "mean_precision": 15.815483093261719
+        },
+        "cycle": {
+          "rmse": 0.59980708360672,
+          "nll": 3.399665355682373,
+          "coverage": 0.9140625,
+          "mean_precision": 15.815483093261719
+        },
+        "duplicate": {
+          "rmse": 0.5914838314056396,
+          "nll": 3.4663925170898438,
+          "coverage": 0.890625,
+          "mean_precision": 15.815483093261719
+        },
+        "reordered": {
+          "rmse": 0.6011372804641724,
+          "nll": 3.408412456512451,
+          "coverage": 0.908203125,
+          "mean_precision": 15.815483093261719
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0,
+        "16": 1.0
+      }
+    },
+    {
+      "variant": "mpnn_plain",
+      "family": "mpnn",
+      "seed": 2,
+      "params": 82850,
+      "train_seconds": 34.42920231819153,
+      "task": {
+        "clean": {
+          "rmse": 0.6011483073234558,
+          "nll": 3.4084584712982178,
+          "coverage": 0.908203125,
+          "mean_precision": 15.815323829650879
+        },
+        "cycle": {
+          "rmse": 0.5998281836509705,
+          "nll": 3.3998119831085205,
+          "coverage": 0.9140625,
+          "mean_precision": 15.815323829650879
+        },
+        "duplicate": {
+          "rmse": 0.5914751291275024,
+          "nll": 6.074041366577148,
+          "coverage": 0.72265625,
+          "mean_precision": 51.261295318603516
+        },
+        "reordered": {
+          "rmse": 0.6011483073234558,
+          "nll": 3.4084584712982178,
+          "coverage": 0.908203125,
+          "mean_precision": 15.815323829650879
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nonbacktracking_mpnn",
+      "family": "nonbacktracking",
+      "seed": 2,
+      "params": 82850,
+      "train_seconds": 36.46616888046265,
+      "task": {
+        "clean": {
+          "rmse": 0.605652928352356,
+          "nll": 3.4329118728637695,
+          "coverage": 0.927734375,
+          "mean_precision": 15.815323829650879
+        },
+        "cycle": {
+          "rmse": 0.6059830784797668,
+          "nll": 3.434769630432129,
+          "coverage": 0.931640625,
+          "mean_precision": 15.815323829650879
+        },
+        "duplicate": {
+          "rmse": 0.5980390310287476,
+          "nll": 6.048394203186035,
+          "coverage": 0.724609375,
+          "mean_precision": 51.261295318603516
+        },
+        "reordered": {
+          "rmse": 0.605652928352356,
+          "nll": 3.4329118728637695,
+          "coverage": 0.927734375,
+          "mean_precision": 15.815323829650879
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nca_ec",
+      "family": "nca",
+      "seed": 2,
+      "params": 82816,
+      "train_seconds": 54.295446157455444,
+      "task": {
+        "clean": {
+          "rmse": 0.6561326384544373,
+          "nll": 3.800184726715088,
+          "coverage": 0.9453125,
+          "mean_precision": 11.267308235168457
+        },
+        "cycle": {
+          "rmse": 0.6260966062545776,
+          "nll": 3.5893640518188477,
+          "coverage": 0.94921875,
+          "mean_precision": 12.357240676879883
+        },
+        "duplicate": {
+          "rmse": 0.6287012696266174,
+          "nll": 3.529646158218384,
+          "coverage": 0.95703125,
+          "mean_precision": 12.777266502380371
+        },
+        "reordered": {
+          "rmse": 0.7139306664466858,
+          "nll": 3.984031915664673,
+          "coverage": 0.955078125,
+          "mean_precision": 11.396547317504883
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0036946241072258,
+        "4": 1.0007216582445486,
+        "8": 1.0014415021377594,
+        "16": 1.000597223981975
+      }
+    },
+    {
+      "variant": "nca_plain",
+      "family": "nca",
+      "seed": 2,
+      "params": 82816,
+      "train_seconds": 51.02709937095642,
+      "task": {
+        "clean": {
+          "rmse": 0.6514102220535278,
+          "nll": 3.7765607833862305,
+          "coverage": 0.93359375,
+          "mean_precision": 12.57673168182373
+        },
+        "cycle": {
+          "rmse": 0.6215919852256775,
+          "nll": 3.5671472549438477,
+          "coverage": 0.91015625,
+          "mean_precision": 14.188580513000488
+        },
+        "duplicate": {
+          "rmse": 0.6146235466003418,
+          "nll": 4.4611616134643555,
+          "coverage": 0.802734375,
+          "mean_precision": 37.391815185546875
+        },
+        "reordered": {
+          "rmse": 0.7079528570175171,
+          "nll": 3.9517321586608887,
+          "coverage": 0.927734375,
+          "mean_precision": 12.964271545410156
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 3.683228432978963,
+        "8": 7.083037593284306,
+        "16": 15.303812716951535
+      }
+    },
+    {
+      "variant": "mpnn_ec",
+      "family": "mpnn",
+      "seed": 3,
+      "params": 82850,
+      "train_seconds": 36.366142988204956,
+      "task": {
+        "clean": {
+          "rmse": 0.5421983003616333,
+          "nll": 3.015072822570801,
+          "coverage": 0.947265625,
+          "mean_precision": 15.724985122680664
+        },
+        "cycle": {
+          "rmse": 0.54180508852005,
+          "nll": 3.0089316368103027,
+          "coverage": 0.953125,
+          "mean_precision": 15.724985122680664
+        },
+        "duplicate": {
+          "rmse": 0.6643704175949097,
+          "nll": 4.9251837730407715,
+          "coverage": 0.912109375,
+          "mean_precision": 15.724985122680664
+        },
+        "reordered": {
+          "rmse": 0.5421983003616333,
+          "nll": 3.015072822570801,
+          "coverage": 0.947265625,
+          "mean_precision": 15.724985122680664
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0,
+        "16": 1.0
+      }
+    },
+    {
+      "variant": "mpnn_plain",
+      "family": "mpnn",
+      "seed": 3,
+      "params": 82850,
+      "train_seconds": 35.26715278625488,
+      "task": {
+        "clean": {
+          "rmse": 0.5421860814094543,
+          "nll": 3.0149099826812744,
+          "coverage": 0.947265625,
+          "mean_precision": 15.724720001220703
+        },
+        "cycle": {
+          "rmse": 0.5417861938476562,
+          "nll": 3.0087342262268066,
+          "coverage": 0.953125,
+          "mean_precision": 15.724720001220703
+        },
+        "duplicate": {
+          "rmse": 0.6643357872962952,
+          "nll": 11.419242858886719,
+          "coverage": 0.662109375,
+          "mean_precision": 50.89888000488281
+        },
+        "reordered": {
+          "rmse": 0.5421860814094543,
+          "nll": 3.0149099826812744,
+          "coverage": 0.947265625,
+          "mean_precision": 15.724720001220703
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nonbacktracking_mpnn",
+      "family": "nonbacktracking",
+      "seed": 3,
+      "params": 82850,
+      "train_seconds": 36.67735767364502,
+      "task": {
+        "clean": {
+          "rmse": 0.5367352366447449,
+          "nll": 2.927506923675537,
+          "coverage": 0.9375,
+          "mean_precision": 15.724720001220703
+        },
+        "cycle": {
+          "rmse": 0.535607635974884,
+          "nll": 2.9075605869293213,
+          "coverage": 0.9375,
+          "mean_precision": 15.724720001220703
+        },
+        "duplicate": {
+          "rmse": 0.6408756971359253,
+          "nll": 9.663883209228516,
+          "coverage": 0.6640625,
+          "mean_precision": 50.89888000488281
+        },
+        "reordered": {
+          "rmse": 0.5367352366447449,
+          "nll": 2.927506923675537,
+          "coverage": 0.9375,
+          "mean_precision": 15.724720001220703
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nca_ec",
+      "family": "nca",
+      "seed": 3,
+      "params": 82816,
+      "train_seconds": 54.358272314071655,
+      "task": {
+        "clean": {
+          "rmse": 0.5976895093917847,
+          "nll": 3.490474224090576,
+          "coverage": 0.953125,
+          "mean_precision": 11.693714141845703
+        },
+        "cycle": {
+          "rmse": 0.5743670463562012,
+          "nll": 3.29400372505188,
+          "coverage": 0.953125,
+          "mean_precision": 12.609512329101562
+        },
+        "duplicate": {
+          "rmse": 0.5622438788414001,
+          "nll": 3.2046890258789062,
+          "coverage": 0.953125,
+          "mean_precision": 12.99787712097168
+        },
+        "reordered": {
+          "rmse": 0.602882444858551,
+          "nll": 3.487518310546875,
+          "coverage": 0.958984375,
+          "mean_precision": 11.721428871154785
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0151825851873195,
+        "4": 0.9954388513944125,
+        "8": 0.9907190459919946,
+        "16": 0.989049869379265
+      }
+    },
+    {
+      "variant": "nca_plain",
+      "family": "nca",
+      "seed": 3,
+      "params": 82816,
+      "train_seconds": 50.16828441619873,
+      "task": {
+        "clean": {
+          "rmse": 0.5995224714279175,
+          "nll": 3.4854073524475098,
+          "coverage": 0.939453125,
+          "mean_precision": 13.45993423461914
+        },
+        "cycle": {
+          "rmse": 0.5743142366409302,
+          "nll": 3.284045934677124,
+          "coverage": 0.931640625,
+          "mean_precision": 14.588497161865234
+        },
+        "duplicate": {
+          "rmse": 0.5500431656837463,
+          "nll": 4.512768745422363,
+          "coverage": 0.787109375,
+          "mean_precision": 37.07474899291992
+        },
+        "reordered": {
+          "rmse": 0.6040688157081604,
+          "nll": 3.474649429321289,
+          "coverage": 0.94140625,
+          "mean_precision": 13.34000015258789
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 3.5152628815720393,
+        "8": 8.0,
+        "16": 13.819046726168153
+      }
+    },
+    {
+      "variant": "mpnn_ec",
+      "family": "mpnn",
+      "seed": 4,
+      "params": 82850,
+      "train_seconds": 35.40930962562561,
+      "task": {
+        "clean": {
+          "rmse": 0.7014790773391724,
+          "nll": 4.020658016204834,
+          "coverage": 0.81640625,
+          "mean_precision": 15.870695114135742
+        },
+        "cycle": {
+          "rmse": 0.7005854845046997,
+          "nll": 4.013544082641602,
+          "coverage": 0.8125,
+          "mean_precision": 15.870695114135742
+        },
+        "duplicate": {
+          "rmse": 0.7415031790733337,
+          "nll": 5.043887138366699,
+          "coverage": 0.84375,
+          "mean_precision": 15.870695114135742
+        },
+        "reordered": {
+          "rmse": 0.7014790773391724,
+          "nll": 4.020658016204834,
+          "coverage": 0.81640625,
+          "mean_precision": 15.870695114135742
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0,
+        "4": 1.0,
+        "8": 1.0,
+        "16": 1.0
+      }
+    },
+    {
+      "variant": "mpnn_plain",
+      "family": "mpnn",
+      "seed": 4,
+      "params": 82850,
+      "train_seconds": 34.151206254959106,
+      "task": {
+        "clean": {
+          "rmse": 0.7014920115470886,
+          "nll": 4.020778656005859,
+          "coverage": 0.81640625,
+          "mean_precision": 15.870845794677734
+        },
+        "cycle": {
+          "rmse": 0.7006081938743591,
+          "nll": 4.013716697692871,
+          "coverage": 0.8125,
+          "mean_precision": 15.870845794677734
+        },
+        "duplicate": {
+          "rmse": 0.7415047287940979,
+          "nll": 11.230792999267578,
+          "coverage": 0.578125,
+          "mean_precision": 51.48338317871094
+        },
+        "reordered": {
+          "rmse": 0.7014920115470886,
+          "nll": 4.020778656005859,
+          "coverage": 0.81640625,
+          "mean_precision": 15.870845794677734
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nonbacktracking_mpnn",
+      "family": "nonbacktracking",
+      "seed": 4,
+      "params": 82850,
+      "train_seconds": 36.199249029159546,
+      "task": {
+        "clean": {
+          "rmse": 0.7025676369667053,
+          "nll": 4.023778438568115,
+          "coverage": 0.828125,
+          "mean_precision": 15.870845794677734
+        },
+        "cycle": {
+          "rmse": 0.7006421685218811,
+          "nll": 4.006044387817383,
+          "coverage": 0.828125,
+          "mean_precision": 15.870845794677734
+        },
+        "duplicate": {
+          "rmse": 0.7460874915122986,
+          "nll": 11.53988265991211,
+          "coverage": 0.60546875,
+          "mean_precision": 51.48338317871094
+        },
+        "reordered": {
+          "rmse": 0.7025676369667053,
+          "nll": 4.023778438568115,
+          "coverage": 0.828125,
+          "mean_precision": 15.870845794677734
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 2.0,
+        "4": 4.0,
+        "8": 8.0,
+        "16": 16.0
+      }
+    },
+    {
+      "variant": "nca_ec",
+      "family": "nca",
+      "seed": 4,
+      "params": 82816,
+      "train_seconds": 53.82773971557617,
+      "task": {
+        "clean": {
+          "rmse": 0.7699484825134277,
+          "nll": 4.374210357666016,
+          "coverage": 0.904296875,
+          "mean_precision": 11.057994842529297
+        },
+        "cycle": {
+          "rmse": 0.729302704334259,
+          "nll": 4.107696533203125,
+          "coverage": 0.892578125,
+          "mean_precision": 12.203825950622559
+        },
+        "duplicate": {
+          "rmse": 0.7285649180412292,
+          "nll": 4.080552577972412,
+          "coverage": 0.875,
+          "mean_precision": 12.465705871582031
+        },
+        "reordered": {
+          "rmse": 0.7862247824668884,
+          "nll": 4.407659530639648,
+          "coverage": 0.904296875,
+          "mean_precision": 10.556375503540039
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.0018284134812725,
+        "4": 0.9949110666455692,
+        "8": 0.9810876126227385,
+        "16": 0.9729822203356481
+      }
+    },
+    {
+      "variant": "nca_plain",
+      "family": "nca",
+      "seed": 4,
+      "params": 82816,
+      "train_seconds": 50.190420627593994,
+      "task": {
+        "clean": {
+          "rmse": 0.761620819568634,
+          "nll": 4.40377140045166,
+          "coverage": 0.875,
+          "mean_precision": 13.157187461853027
+        },
+        "cycle": {
+          "rmse": 0.7244122624397278,
+          "nll": 4.196274757385254,
+          "coverage": 0.849609375,
+          "mean_precision": 14.772043228149414
+        },
+        "duplicate": {
+          "rmse": 0.7176798582077026,
+          "nll": 6.961953163146973,
+          "coverage": 0.673828125,
+          "mean_precision": 39.389991760253906
+        },
+        "reordered": {
+          "rmse": 0.7840254902839661,
+          "nll": 4.4462785720825195,
+          "coverage": 0.880859375,
+          "mean_precision": 12.391565322875977
+        }
+      },
+      "credit_by_multiplicity": {
+        "1": 1.0,
+        "2": 1.8287791323175406,
+        "4": 3.6119887975900697,
+        "8": 7.766871696768381,
+        "16": 13.97931655885636
+      }
+    }
+  ]
+}

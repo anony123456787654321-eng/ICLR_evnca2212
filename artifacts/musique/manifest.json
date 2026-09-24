@@ -1,0 +1,24 @@
+{
+  "dataset": "MuSiQue-Answerable v1.0",
+  "license": "CC BY 4.0",
+  "source": "https://github.com/StonyBrookNLP/musique",
+  "attribution": "Trivedi, Balasubramanian, Khot and Sabharwal. MuSiQue: Multihop Questions via Single-hop Question Composition. TACL 2022.",
+  "target_dir": "data/raw/musique/data",
+  "compression": "xz",
+  "files": {
+    "musique_ans_v1.0_train.jsonl": {
+      "archive": "musique_ans_v1.0_train.jsonl.xz",
+      "archive_sha256": "4f141e51488ddc04c2d68de060d0baebfe3504e4f112fe81766421025fbb881c",
+      "sha256": "83a75b1e11e4e9bb8f8308e72ac40ca617ae4431b3a0d955b61cab259248490a",
+      "bytes": 241046755,
+      "archive_bytes": 24095080
+    },
+    "musique_ans_v1.0_dev.jsonl": {
+      "archive": "musique_ans_v1.0_dev.jsonl.xz",
+      "archive_sha256": "262cbd1aa8e5de324b664b12fd3b9956fd47c2efb319ea381cccf46cb1acb10f",
+      "sha256": "15fa63794d18a94ce12411aca6e2327e65b6e83b0b1490efab3f1962e48abf3b",
+      "bytes": 30439728,
+      "archive_bytes": 3703960
+    }
+  }
+}

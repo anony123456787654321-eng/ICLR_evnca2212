@@ -1,0 +1,13 @@
+{
+  "macros": 159,
+  "tables": [
+    "paper/generated/tab_strong_dedup.tex",
+    "paper/generated/tab_paraphrase.tex",
+    "paper/generated/tab_hop_groups.tex",
+    "paper/generated/tab_cost.tex",
+    "paper/generated/tab_theory.tex",
+    "paper/generated/tab_set_transformer.tex"
+  ],
+  "skipped": {},
+  "note": "a skipped arm has no macros and no table; the paper must not reference it until its report exists"
+}

@@ -1,0 +1,58 @@
+{
+  "study": "MNIST restart: sectors and learned evidence context",
+  "primary_sources": [
+    {
+      "role": "reference model and protocol",
+      "title": "Self-classifying MNIST Digits",
+      "authors": "Randazzo, Mordvintsev, Niklasson, Levin, Greydanus",
+      "venue": "Distill, 2020",
+      "url": "https://distill.pub/2020/selforg/mnist/",
+      "doi": "10.23915/distill.00027.002",
+      "retrieved": "2026-09-11"
+    },
+    {
+      "role": "authors' linked implementation (source of truth for hyperparameters)",
+      "repository": "google-research/self-organising-systems",
+      "path": "notebooks/mnist_ca.ipynb",
+      "commit": "be4424851c6795d850cfad0977a797053670f7e9",
+      "commit_date": "2021-02-10T22:07:04Z",
+      "raw_url": "https://raw.githubusercontent.com/google-research/self-organising-systems/master/notebooks/mnist_ca.ipynb",
+      "sha256": "d047cbea7ff79a85be9521cfbb5a12beaa3a514ba660f6a3e9f692dc34ffd7ca",
+      "retrieved": "2026-09-11"
+    },
+    {
+      "role": "background: the 16-channel growth model, a DIFFERENT task",
+      "title": "Growing Neural Cellular Automata",
+      "venue": "Distill, 2020",
+      "url": "https://distill.pub/2020/growing-ca/",
+      "doi": "10.23915/distill.00023",
+      "note": "Not the reference for this study. Its 16-channel state and fixed Sobel perception belong to image growth, not classification."
+    },
+    {
+      "role": "prior art for the 'attention' control variant",
+      "title": "Attention-based Neural Cellular Automata (ViTCA)",
+      "arxiv": "2211.01233",
+      "url": "https://arxiv.org/abs/2211.01233",
+      "note": "Our local-attention variant is an ADAPTATION, not a faithful ViTCA reproduction; its task and training differ. Phase 2 must disclose the differences."
+    }
+  ],
+  "dataset": {
+    "name": "MNIST",
+    "mirrors": [
+      "https://storage.googleapis.com/cvdf-datasets/mnist/",
+      "https://ossci-datasets.s3.amazonaws.com/mnist/"
+    ],
+    "archive_sha256": {
+      "train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+      "train-labels-idx1-ubyte.gz": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c",
+      "t10k-images-idx3-ubyte.gz": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+      "t10k-labels-idx1-ubyte.gz": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6"
+    }
+  },
+  "adaptations_from_source": [
+    "TensorFlow/Keras -> PyTorch. Layer shapes, activations, initializers, update rule, noise, fire rate, loss, per-tensor gradient normalization, optimizer and LR schedule are matched to the pinned notebook.",
+    "Training uses our 50k train split rather than the full 60k population, because 5k dev + 5k calibration are held out. Reported development numbers are therefore not directly comparable to the article's test-set figures.",
+    "Primary accuracy is averaged per image and then across images; the article's batch-pooled statistic is also reported as pooled_cell_accuracy.",
+    "Target 'label pictures' are kept in broadcastable (B,10,1,1) form instead of materialised at (B,28,28,10). Numerically identical."
+  ]
+}

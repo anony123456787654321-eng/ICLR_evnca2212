@@ -1,0 +1,115 @@
+{
+  "experiment": "A2",
+  "preregistration": "docs/DIRECTIONAL_PREREGISTRATION.md",
+  "spec": {
+    "dim": 4,
+    "obs_dim": 1,
+    "cells": 8,
+    "roots": 3,
+    "steps": 8,
+    "iters": 4000,
+    "copies": 16
+  },
+  "rows": [
+    {
+      "arm": "plain_matrix",
+      "variant": "mpnn_plain",
+      "credit_form": "matrix",
+      "obs_dim": 1,
+      "seed": 0,
+      "train_seconds": 208.63742327690125,
+      "task": {
+        "clean": {
+          "nll": 5.876556396484375,
+          "coverage": 0.875,
+          "rmse": 1.1034245491027832
+        },
+        "duplicate": {
+          "nll": 18.6351375579834,
+          "coverage": 0.640625,
+          "rmse": 1.1760382652282715
+        }
+      }
+    },
+    {
+      "arm": "plain_matrix",
+      "variant": "mpnn_plain",
+      "credit_form": "matrix",
+      "obs_dim": 1,
+      "seed": 1,
+      "train_seconds": 193.80584692955017,
+      "task": {
+        "clean": {
+          "nll": 5.190084934234619,
+          "coverage": 0.921875,
+          "rmse": 0.8516411781311035
+        },
+        "duplicate": {
+          "nll": 34.81314468383789,
+          "coverage": 0.697265625,
+          "rmse": 1.010278344154358
+        }
+      }
+    },
+    {
+      "arm": "plain_matrix",
+      "variant": "mpnn_plain",
+      "credit_form": "matrix",
+      "obs_dim": 1,
+      "seed": 2,
+      "train_seconds": 194.90480589866638,
+      "task": {
+        "clean": {
+          "nll": 5.520889759063721,
+          "coverage": 0.921875,
+          "rmse": 0.9696253538131714
+        },
+        "duplicate": {
+          "nll": 18.897499084472656,
+          "coverage": 0.716796875,
+          "rmse": 1.0417802333831787
+        }
+      }
+    },
+    {
+      "arm": "plain_matrix",
+      "variant": "mpnn_plain",
+      "credit_form": "matrix",
+      "obs_dim": 1,
+      "seed": 3,
+      "train_seconds": 191.97604036331177,
+      "task": {
+        "clean": {
+          "nll": 4.862405776977539,
+          "coverage": 0.953125,
+          "rmse": 0.8460494875907898
+        },
+        "duplicate": {
+          "nll": 18.900373458862305,
+          "coverage": 0.728515625,
+          "rmse": 0.9357105493545532
+        }
+      }
+    },
+    {
+      "arm": "plain_matrix",
+      "variant": "mpnn_plain",
+      "credit_form": "matrix",
+      "obs_dim": 1,
+      "seed": 4,
+      "train_seconds": 193.58846378326416,
+      "task": {
+        "clean": {
+          "nll": 5.817712306976318,
+          "coverage": 0.919921875,
+          "rmse": 0.9816270470619202
+        },
+        "duplicate": {
+          "nll": 52.17254638671875,
+          "coverage": 0.5625,
+          "rmse": 1.2456073760986328
+        }
+      }
+    }
+  ]
+}
