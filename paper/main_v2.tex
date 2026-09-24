@@ -20,8 +20,7 @@
 \input{generated/directional_macros}
 \input{generated/final_results}
 
-\title{\raggedright Repetition Is Not Corroboration:
-Counting Sources Instead of Copies in Neural Memory\par}
+\title{\raggedright Lineage Ledgers: Crediting Sources Once, and Only Where They Looked\par}
 
 \author{Anonymous Author(s)\\
 Affiliation\\
@@ -37,30 +36,32 @@ Address\\
 \maketitle
 
 \begin{abstract}
-A memory that aggregates evidence by counting passages can be persuaded by
-whoever copies most, because copying a passage is free while observing the
-world is not. This work credits confidence to lineage-distinct sources rather
-than to deliveries, and credits each source only along the directions its
-observation constrains, where truth discovery and pedigree methods treat a
-source as a single vote. A ledger realizes both with an additive union across
-sources, a max-register join within a source and a per-source precision matrix.
-Its credit is invariant to redelivery and to arrival order, and a coordinated
-bottom-$k$ sketch bounds its storage with a finite-sample error bound, for
-scalar and for directional credit alike, that does not grow with the number of
-deliveries. Two pre-registered experiments test the principle. A frozen
-$7$B-parameter reader loses $0.1167$ gold-answer recall when one false
-paragraph is copied sixteen times, and reading from the ledger recovers the
-entire loss on one fifth of the context, whereas MinHash, the deployed defence,
-deletes the true paragraph in half of all records when the falsehood arrives
-first. On real MuSiQue retrieval, support kept per requirement predicts whether
-retrieved evidence contains every needed fact $0.1535$ AUROC better than the
-same support averaged into a scalar, which is at chance within every hop count.
-Inside a learned multi-hop memory, the ledger holds its clean accuracy under
-sixteenfold redelivery, exact or re-chunked, while the undefended memory loses
-more than a quarter of it, as does every near-duplicate detector once the copies
-are re-chunked. When only fragments of a source arrive, the ledger matches
-reading every fragment while crediting one source instead of sixteen.
+Counting passages is a cheap way to aggregate evidence, and it hands the
+outcome to whoever copies most, since copying a passage costs nothing while
+observing the world does not. Confidence here is credited to lineage-distinct
+sources rather than to deliveries, and each source is credited only along the
+directions its observation constrains. Truth discovery and pedigree methods
+instead treat a source as a single vote. A ledger realizes both parts, through
+an additive union across sources, a max-register join within a source, and a
+per-source precision matrix. Its credit comes out invariant to redelivery and
+to arrival order. A coordinated bottom-$k$ sketch bounds the storage, with a
+finite-sample error bound that holds for scalar and for directional credit
+alike and does not grow with the number of deliveries. Two pre-registered
+experiments test the principle. A frozen $7$B-parameter reader loses $0.1167$
+gold-answer recall when one false paragraph is copied sixteen times. Reading
+from the ledger recovers the whole loss on one fifth of the context, whereas
+MinHash, the deployed defence, deletes the true paragraph in half of all
+records when the falsehood arrives first. On real MuSiQue retrieval, support
+kept per requirement predicts whether retrieved evidence contains every needed
+fact $0.1535$ AUROC better than the same support averaged into a scalar, which
+sits at chance within every hop count. Inside a learned multi-hop memory the
+ledger holds its clean accuracy under sixteenfold redelivery, exact or
+re-chunked, while the undefended memory loses more than a quarter of it, as
+does every near-duplicate detector once the copies are re-chunked. When only
+fragments of a source arrive, the ledger matches reading every fragment while
+crediting one source instead of sixteen.
 \end{abstract}
+
 
 \section{Introduction}
 \label{sec:intro}
@@ -68,22 +69,22 @@ reading every fragment while crediting one source instead of sixteen.
 Language models tend to side with whichever answer more of their context
 supports. When retrieved passages disagree, \citet{xie2024chameleon} find that
 models follow the majority, and the passages in their study are distinct texts.
-On the open web a majority is often manufactured rather than observed. A single
-report is syndicated across outlets, a single paragraph is re-chunked by a
-retriever, and a single message is retransmitted by a network. Copying is free
-while observation is not, so a reader that counts passages rewards whoever
-copies most.
+A majority on the open web is often manufactured rather than observed. One
+report is syndicated across outlets, one paragraph is re-chunked by a retriever,
+and one message is retransmitted by a network.
+Copying is free while observation is not, so a reader that counts passages
+rewards whoever copies most.
 
 This work starts from the principle that repetition is not corroboration.
 Confidence in a claim should grow with the number of lineage-distinct sources
 that support it, and not with the number of times those sources are delivered.
-The principle does not ask a memory to discard repeated material, because a
-later version of a source can be a better representation of it. Two quantities
-that message-passing systems routinely conflate are therefore kept apart.
+The principle does not ask a memory to discard repeated material, since a later
+version of a source can be a better representation of it. Two quantities that
+message-passing systems routinely conflate are therefore kept apart.
 \emph{Computational innovation} measures how much a message improves the current
 representation, and it is left unconstrained. \emph{Evidence credit} measures
-how much source-level support a message contributes, and it is bounded by
-lineage. Ten transformations of one observation are not ten observations.
+how much source-level support a message contributes, and lineage bounds it. Ten
+transformations of one observation are not ten observations.
 
 Truth discovery and pedigree methods already discount copies
 (Section~\ref{sec:related}). Beyond them, this work contributes the following.
@@ -94,27 +95,28 @@ earlier one under a key whose mass term stops a redelivery from raising
 confidence. Credit is invariant to redelivery and to arrival order, and a
 bottom-$k$ sketch bounds storage with an error bound that does not grow with
 deliveries (Section~\ref{sec:theory}).
-\item \textbf{Directional credit.} A source is credited only along the
+\item \textbf{Directional credit.} A source earns credit only along the
 directions its observation constrains. A scalar source count, as used by truth
 discovery and pedigree methods, is its trace surrogate and claims support along
-directions no source observed, and the guarantees extend to directional credit
+directions no source observed, and the guarantees carry over
 (Proposition~\ref{prop:directional}).
 \item \textbf{Two pre-registered demonstrations.} Copies of one false source
 move a frozen $7$B reader monotonically, extending the majority-following of
 \citet{xie2024chameleon} and \citet{naphade2026rational} to majorities
-manufactured by copying, and the ledger removes the effect on one fifth of the
-context while near-duplicate detection deletes the truth when the falsehood
+manufactured by copying. The ledger removes the effect on one fifth of the
+context, while near-duplicate detection deletes the truth when the falsehood
 arrives first. On real retrieval, support kept per requirement predicts whether
 evidence suffices where the same support averaged into a scalar does not.
-\item \textbf{A learned memory.} The ledger holds clean accuracy under exact
-and re-chunked redelivery, where no defence and every near-duplicate detector
-lose more than a quarter of it, and with fragments alone it matches reading
-every fragment at one sixteenth of the credit. It costs less than no defence
-and conserves credit unchanged on three further backbones.
+\item \textbf{A learned memory.} The ledger holds clean accuracy under exact and
+re-chunked redelivery, where no defence and every near-duplicate detector lose
+more than a quarter of it. Given fragments alone it matches reading every
+fragment at one sixteenth of the credit. It costs less than no defence and
+conserves credit unchanged on three further backbones.
 \end{itemize}
 
-The term \emph{lineage-distinct} replaces \emph{independent} throughout,
+The term \emph{lineage-distinct} stands in for \emph{independent} throughout,
 since source identity alone cannot establish statistical independence.
+
 
 \section{Related Work}
 \label{sec:related}
@@ -125,19 +127,19 @@ Section~\ref{sec:results} draw their baselines from all four.
 
 \subsection{Duplicate detection}
 The standard defences operate on payloads rather than on lineage. MinHash over
-shingles \citep{broder1997resemblance} estimates resemblance
-from hashed $n$-grams. SimHash \citep{charikar2002simhash} compares at a Hamming
-radius, and web-scale crawling fixes that radius by convention
+shingles \citep{broder1997resemblance} estimates resemblance from hashed
+$n$-grams. SimHash \citep{charikar2002simhash} compares at a Hamming radius, and
+web-scale crawling fixes that radius by convention
 \citep{manku2007nearduplicate}. Corpus cleaning applies exact and approximate
 matching at scale \citep{lee2022deduplicating}, and MinHash remains the
 deduplication stage of current web-scale pretraining pipelines
-\citep{penedo2024fineweb}, so the comparison in Section~\ref{sec:results} is
-against deployed practice. Every method in this group asks
-whether two texts look alike, whereas lineage asks whether two texts descend
-from one observation. The two questions diverge in both directions. Overlapping
-chunks of one paragraph are not near-duplicates of one another, and a false
-paragraph that edits one span of a true one is a near-duplicate of it. Fabricating
-identity in order to defeat a lineage ledger is the Sybil attack in this setting
+\citep{penedo2024fineweb}, so the comparison in Section~\ref{sec:results} runs
+against deployed practice. Every method in this group asks whether two texts
+look alike, whereas lineage asks whether two texts descend from one observation.
+The two questions diverge in both directions. Overlapping chunks of one
+paragraph are not near-duplicates of one another, and a false paragraph that
+edits one span of a true one is a near-duplicate of it. Fabricating identity in
+order to defeat a lineage ledger is the Sybil attack in this setting
 \citep{douceur2002sybil}.
 
 \subsection{Evidence fusion}
@@ -161,17 +163,17 @@ common multiple merges source sets without double counting
 \citep{chang2025primex}. Both treat a source as a vote or as a set member. The
 ledger differs in three respects. It credits a source only along the directions
 its observation constrains. It keeps for each source a versioned payload that a
-later arrival may refine without adding credit, a design property established
-formally here (Corollary~\ref{cor:invariance}) rather than measured. It bounds
+later arrival may refine without adding credit, established formally here
+(Corollary~\ref{cor:invariance}) rather than measured. It bounds
 its state with a mergeable sketch, where exact pedigree grows with the number of
 sources.
 
 \subsection{Message passing and belief propagation}
-A third group addresses cyclic feedback. Loopy propagation becomes
-overconfident on cycles \citep{murphy1999loopy}, and non-backtracking variants
-remove short cycles \citep{park2024nba}. Duplication is a distinct failure,
-since a duplicated root inflates confidence on a tree where no loop exists.
-Idempotent merging of replicated state is standard in distributed systems
+A third group addresses cyclic feedback. Loopy propagation becomes overconfident
+on cycles \citep{murphy1999loopy}, and non-backtracking variants remove short
+cycles \citep{park2024nba}. Duplication is a distinct failure, since a
+duplicated root inflates confidence on a tree where no loop exists. Idempotent
+merging of replicated state is standard in distributed systems
 \citep{shapiro2011crdt}, and duplicate-insensitive summaries combine sketches
 with multipath communication \citep{nath2004synopsis}. The question added here
 concerns versioned learned payloads and the error a compressed payload incurs.
@@ -182,13 +184,13 @@ A fourth group aggregates retrieved passages without source accounting
 \citep{xie2024chameleon}. A handful of crafted passages can control a reader's
 answer \citep{zou2025poisonedrag}, and the closest defence certifies quality
 against a bounded number of injected passages \citep{xiang2024robustrag}, a
-budget that copies of one source exhaust for free.
-Paraphrasing one argument can persuade a model more than distinct support
-\citep{naphade2026rational}, the grouping of retrieved records controls the
-weight a model gives them \citep{liu2026grouping}, and graph agents treat
-repeated paths to one observation as corroboration \citep{wang2026graphecho}.
-These studies measure the failure, and the ledger is a mechanism that removes
-it.
+budget that copies of one source exhaust for free. Paraphrasing one argument can
+persuade a model more than distinct support \citep{naphade2026rational}, the
+grouping of retrieved records controls the weight a model gives them
+\citep{liu2026grouping}, and graph agents treat repeated paths to one
+observation as corroboration \citep{wang2026graphecho}. These studies measure
+the failure, and the ledger is a mechanism that removes it.
+
 
 \section{Method}
 \label{sec:method}
@@ -198,25 +200,25 @@ it.
 Every message entering the memory is a triple. It carries a lineage identifier
 $r$, a payload, and a version. The identifier names the \emph{observation} that
 the message descends from, not the message itself, so two arrivals share an
-identifier exactly when they report the same underlying observation, however
-far apart their surface forms.
+identifier exactly when they report the same underlying observation, however far
+apart their surface forms.
 
 The identifier is supplied with the arrival rather than inferred from its
 content. This is the central design decision and it is deliberate.
-Proposition~\ref{prop:indist} in Appendix~\ref{app:theory} shows that no
-function of content can recover lineage, because $m$ copies of one observation
-and $m$ separate observations can induce the same distribution over text. The
-ledger therefore does not try to discover lineage. It conserves the lineage it
-is given, which is a different and achievable job. In practice the errors that
-sources share often reveal copying \citep{dong2009dependence}, so a copy
-detector can supply the identifiers where provenance metadata is missing.
+Proposition~\ref{prop:indist} in Appendix~\ref{app:theory} shows that no function
+of content can recover lineage, because $m$ copies of one observation and $m$
+separate observations can induce the same distribution over text. The ledger
+therefore does not try to discover lineage. It conserves the lineage it is
+given, which is a different and achievable job. In practice the errors that
+sources share often reveal copying \citep{dong2009dependence}, so a copy detector
+can supply the identifiers where provenance metadata is missing.
 
 In the experiments the identifier is the identity of the supporting paragraph,
-so a verbatim copy, an overlapping re-chunking and a paraphrase of one
-paragraph all carry the same identifier, while a paragraph that contradicts it
-carries its own. In a deployed retrieval system it would be provenance metadata
-already present in the index, such as a document identifier or a canonical URL.
-What happens when an adversary fabricates identifiers is measured in
+so a verbatim copy, an overlapping re-chunking and a paraphrase of one paragraph
+all carry the same identifier, while a paragraph that contradicts it carries its
+own. A deployed retrieval system would instead use provenance metadata already
+present in the index, such as a document identifier or a canonical URL. What
+happens when an adversary fabricates identifiers is measured in
 Section~\ref{sec:limits} and Appendix~\ref{app:sybil}.
 
 \subsection{The ledger and the rule applied to each arrival}
@@ -231,21 +233,21 @@ holds. Versions of one identifier are ordered by
 where $\rho_v$ is the refinement level, $m_v$ the mass the version claims and
 $h(z_v)$ a hash of the payload. The middle term is what stops inflation. Two
 versions at equal refinement are equally informed about one observation, so the
-ledger keeps the one claiming \emph{less} information, and a redelivery can
-move the belief without ever raising confidence. The hash makes the order
-total. In the text experiments an arrival claims no mass, so the key reduces to
-the version and the hash, and copies share version zero, so the ledger keeps one
-rendering of each identifier, chosen by the hash. A window cut from a
-paragraph omits part of it and ranks below it.
+ledger keeps the one claiming \emph{less} information, and a redelivery can move
+the belief without ever raising confidence. The hash makes the order total. In
+the text experiments an arrival claims no mass, so the key reduces to the version
+and the hash, and copies share version zero, so the ledger keeps one
+rendering of each identifier, chosen by the hash. A window cut from a paragraph
+omits part of it and ranks below it.
 
 Each arrival is then resolved by one rule, before it reaches the content path.
-If its identifier is absent from the ledger, it is admitted and recorded. If
-its identifier is present and its key strictly beats the incumbent, it is
-admitted and replaces the incumbent, which is refinement. Otherwise it is
-dropped and never reaches the model. Across identifiers the payloads add, and
-within one identifier a later version replaces an earlier one. Both operations
-are commutative, associative and idempotent, so the ledger reaches the same
-state under any arrival order, any delay and any number of redeliveries.
+If its identifier is absent from the ledger, it is admitted and recorded. If its
+identifier is present and its key strictly beats the incumbent, it is admitted
+and replaces the incumbent, which is refinement. Otherwise it is dropped and
+never reaches the model. Across identifiers the payloads add, and within one
+identifier a later version replaces an earlier one. Both operations are
+commutative, associative and idempotent, so the ledger reaches the same state
+under any arrival order, any delay and any number of redeliveries.
 
 Credited evidence is then read off the ledger directly. It is one unit for each
 identifier the ledger holds, whatever the number of arrivals that carried it.
@@ -273,11 +275,11 @@ along directions no source observed.
 
 For text, a retrieved passage with embedding $e_r$ contributes rank-one credit
 $e_r e_r^\top$. A question that needs several facts defines several requirement
-directions $d_h$, and the support along each is
-$s_h=\sum_r (d_h^\top e_r)^2$, summed over lineage-distinct passages. Evidence
-suffices only if every requirement is supported, so the directional confidence
-is the weakest of them, $\min_h s_h$, whereas a scalar confidence averages them
-and can be high while one requirement has no support at all.
+directions $d_h$, and the support along each is $s_h=\sum_r (d_h^\top e_r)^2$,
+summed over lineage-distinct passages. Evidence suffices only if every
+requirement is supported, so the directional confidence is the weakest of them,
+$\min_h s_h$, whereas a scalar confidence averages them and can be high while
+one requirement has no support at all.
 
 How sources combine within one requirement is a separate choice. Summation
 measures corroboration and is exact when lineage-distinct sources also err
@@ -290,48 +292,48 @@ Section~\ref{sec:directional} measures both.
 
 \subsection{Bounded storage and what a reader sees}
 \label{sec:sketch}
-A bottom-$k$ sketch \citep{cohen2007bottomk} bounds the ledger by retaining
-the $k$ identifiers with the smallest coordinated hashes under a shared
-threshold $\theta$, so two memories that never communicated retain the same
-subset and merge without double counting. Below $k$ identifiers the sketch is
-exact, and above $k$ the Horvitz-Thompson estimator
-\citep{horvitz1952generalization} $\hat{S}=\theta^{-1}\sum_{r\in S}\eta_r$ is
-unbiased (Appendix~\ref{app:theory}). A reader, whether a learned readout or a
-frozen language model, reads the ledger state rather than the arrival stream,
-so it sees every lineage-distinct source once, in the best form that has
-arrived.
+A bottom-$k$ sketch \citep{cohen2007bottomk} bounds the ledger by retaining the
+$k$ identifiers with the smallest coordinated hashes under a shared threshold
+$\theta$, so two memories that never communicated retain the same subset and
+merge without double counting. Below $k$ identifiers the sketch is exact, and
+above $k$ the Horvitz-Thompson estimator \citep{horvitz1952generalization}
+$\hat{S}=\theta^{-1}\sum_{r\in S}\eta_r$ is unbiased
+(Appendix~\ref{app:theory}). A reader, learned readout or frozen language model
+alike, reads the ledger state rather than the arrival stream, so it sees every
+lineage-distinct source once, in the best form that has arrived.
+
 
 \section{Theory}
 \label{sec:theory}
 
-The interface is compressed, so its approximation error is bounded rather than
-assumed. Appendix~\ref{app:theory} gives the assumptions and the proofs.
+Compression of the interface means its approximation error needs to be bounded
+rather than assumed. Appendix~\ref{app:theory} gives the assumptions and the proofs.
 
 \begin{theorem}[Categorical memory bound, informal]
 \label{thm:categorical}
 Fix a set of source payloads independent of the sketch hashes, and let the
-decoder satisfy Assumption~\ref{ass:readout}. Then the KL divergence
-between the sketch-adapter model and the exact-ledger model admits a
-finite-sample bound in terms of the representation error and the evidence-mass
-error. The bound depends on neither the number of deliveries nor the
-multiplicity of any root.
+decoder satisfy Assumption~\ref{ass:readout}. The KL divergence between the
+sketch-adapter model and the exact-ledger model then admits a finite-sample
+bound in terms of the representation error and the evidence-mass error. The
+bound depends on neither the number of deliveries nor the multiplicity of any
+root.
 \end{theorem}
 
 \begin{corollary}[Invariance to redelivery]
 \label{cor:invariance}
-Let a delivery sequence contain $N$ arrivals descended from $R$
-lineage-distinct roots, with $N \geq R$. Credited evidence, and therefore the
-reported confidence ceiling, depends on $R$ and not on $N$. Redelivering a
-version already held leaves both unchanged however large $N$ becomes, while a
-version that strictly beats the incumbent may still change the representation.
+Let a delivery sequence contain $N$ arrivals descended from $R$ lineage-distinct
+roots, with $N \geq R$. Credited evidence, and therefore the reported confidence
+ceiling, depends on $R$ and not on $N$. Redelivering a version already held
+leaves both unchanged however large $N$ becomes, while a version that strictly
+beats the incumbent may still change the representation.
 \end{corollary}
 
-An adversary who multiplies deliveries of a held source therefore gains
-nothing, and repeated deliveries change neither error term of
+An adversary who multiplies deliveries of a held source therefore gains nothing,
+and repeated deliveries change neither error term of
 Theorem~\ref{thm:categorical}. Proposition~\ref{prop:calibration} prices the
 alternative for Gaussians sharing a mean, where crediting all $N$ copies of one
-observation in $d$ dimensions costs $\tfrac{d}{2}(N - 1 - \ln N)$ nats. The
-same guarantees hold for the directional credit of Equation~\ref{eq:psd}.
+observation in $d$ dimensions costs $\tfrac{d}{2}(N - 1 - \ln N)$ nats. The same
+guarantees hold for the directional credit of Equation~\ref{eq:psd}.
 
 \begin{proposition}[Directional credit, informal]
 \label{prop:directional}
@@ -341,11 +343,11 @@ requirement's support, are functions of the ledger state and so inherit
 Corollary~\ref{cor:invariance}. (ii) Along any direction that no held source
 constrains, support equals the prior, whereas the scalar surrogate
 $\tfrac{1}{d}\mathrm{tr}(\Lambda_r)I$ adds $\tfrac{1}{d}\sum_r
-\rho_{ir}\mathrm{tr}(\Lambda_r)$ there while preserving the trace. (iii) Under the
-bottom-$k$ sketch, with probability at least $1-\delta$ the error in support is
-at most one radius uniformly over all directions, and hence in the weakest
-requirement's support, and the radius depends on neither the number of
-deliveries nor the multiplicity of any root.
+\rho_{ir}\mathrm{tr}(\Lambda_r)$ there while preserving the trace. (iii) Under
+the bottom-$k$ sketch, with probability at least $1-\delta$ the error in support
+is at most one radius uniformly over all directions, and hence in the weakest
+requirement's support. That radius depends on neither the number of deliveries
+nor the multiplicity of any root.
 \end{proposition}
 
 For rank-one text credit over $n$ held sources the radius is at most
@@ -355,17 +357,20 @@ best-single-source support (Appendix~\ref{app:theory}).
 \section{Experimental Setup}
 \label{sec:setup}
 
+Two datasets, two frozen readers and one learned memory support the experiments
+below, and the subsections that follow fix the data, the three duplication
+settings, the baselines and the protocol.
+
 \subsection{Data and readers}
 MuSiQue \citep{trivedi2022musique} composes single-hop questions into chains of
 two to four hops, with explicit decompositions and per-step supporting
-paragraphs. AVeriTeC
-\citep{schlichtkrull2023averitec, schlichtkrull2024sharedtask} supplies a
-real-world verification setting with an official knowledge store. Passages for
-the learned models are encoded with a frozen BGE encoder \citep{xiao2023bge}.
-The language-model experiments use Qwen2.5-7B-Instruct and
-Qwen2.5-1.5B-Instruct \citep{qwen2025qwen25} as frozen readers with greedy
-decoding. The readers are never fine-tuned, and each arm differs from the others
-only in which passages its accounting rule admits to the context.
+paragraphs. AVeriTeC \citep{schlichtkrull2023averitec,
+schlichtkrull2024sharedtask} supplies a real-world verification setting with
+an official knowledge store. Passages for the learned models are encoded
+with a frozen BGE encoder \citep{xiao2023bge}. The language-model experiments use
+Qwen2.5-7B-Instruct and Qwen2.5-1.5B-Instruct \citep{qwen2025qwen25} as frozen
+readers with greedy decoding. No reader is ever fine-tuned, and each arm differs
+from the others only in which passages its accounting rule admits to the context.
 
 \subsection{Syndicated misinformation}
 For each of the first $300$ eligible two-hop MuSiQue records, a counterfactual
@@ -381,19 +386,19 @@ and Appendix~\ref{app:syndication} reproduces them.
 
 \subsection{Directional credit}
 Two pre-registered experiments test Section~\ref{sec:conf}, a synthetic one
-(Appendix~\ref{app:directional}) and one on every answerable MuSiQue
-development record. The five of its twenty paragraphs most similar to the
-question form the retrieved set, which is sufficient when it holds every
-supporting paragraph. Requirement directions are the question's decomposition steps with every
+(Appendix~\ref{app:directional}) and one on every answerable MuSiQue development
+record. The five of its twenty paragraphs most similar to the question form the
+retrieved set, which is sufficient when it holds every supporting paragraph.
+Requirement directions are the question's decomposition steps with every
 reference to an earlier answer removed, which stands in for a query decomposer
 and gives no score access to answers or support labels.
 
 \subsection{Duplication regimes for the learned memory}
 Every hop of a chain is delivered at multiplicities of one to sixteen, as
 \textbf{exact} byte-identical copies, \textbf{re-chunked}, where the paragraph
-arrives once in full and then as distinct overlapping windows cut from it, or
-as \textbf{fragments}, where only the windows arrive. Every regime preserves the
-lineage identifier, which makes each a test of conservation rather than of
+arrives once in full and then as distinct overlapping windows cut from it, or as
+\textbf{fragments}, where only the windows arrive. Every regime preserves the
+lineage identifier, making each a test of conservation rather than of
 identification. Appendix~\ref{app:duplication} constructs all three.
 
 \subsection{Baselines}
@@ -404,25 +409,26 @@ Surface deduplication comprises canonical hashing as used in corpus cleaning
 \citep{manku2007nearduplicate}, and an embedding detector over BGE
 representations \citep{xiao2023bge} at a frozen cosine threshold. Evidential
 fusion comprises Dempster's rule \citep{shafer1976dempster} and covariance
-intersection \citep{julier1997ci}, and non-backtracking message passing
-\citep{park2024nba} represents cycle suppression. The provenance-free control
-processes every arrival. All detector thresholds are frozen literature
+intersection \citep{julier1997ci}. Non-backtracking message passing
+\citep{park2024nba} represents cycle suppression, and the provenance-free
+control processes every arrival. All detector thresholds are frozen literature
 defaults, and none is tuned on any evaluation population.
 
 \subsection{Protocol}
-Learned models run over a common set of five seeds, and differences are
-reported as exact paired $t$ intervals over seeds. The learned memory is
-evaluated on $1{,}252$ two-hop development records ranked against $555$
-candidate answers. The frozen readers are deterministic, so their intervals
-come from $10{,}000$ paired bootstrap resamples over records. Credited evidence
-is reported relative to the lineage-distinct ceiling, so that perfect
-conservation reads as $1.000$ at every multiplicity.
+Learned models run over a common set of five seeds, and differences are reported
+as exact paired $t$ intervals over seeds. The learned memory is evaluated on
+$1{,}252$ two-hop development records ranked against $555$ candidate answers.
+The frozen readers are deterministic, so their intervals come from $10{,}000$
+paired bootstrap resamples over records. Credited evidence is reported relative
+to the lineage-distinct ceiling, which makes exact conservation read as
+$1.000$ at every multiplicity.
+
 
 \section{Results}
 \label{sec:results}
 
-The results follow the principle from the reader outward, and
-Table~\ref{tab:summary} states what each one establishes.
+The results start at the reader and work outward, and Table~\ref{tab:summary}
+states what each one establishes.
 
 \begin{table}[t]
 \centering\small
@@ -441,7 +447,7 @@ Surface similarity cannot substitute for lineage & MinHash deletes the true pass
 Corroboration is directional & $\DirReROne$ within-hop AUROC over scalar support, $\DirReROneCI$ & \ref{sec:directional} \\
 Lineage helps confidence under copies & $\DirReRTwo$ AUROC over provenance-free counting, $\DirReRTwoCI$ & \ref{sec:directional} \\
 Conservation protects a learned memory & $\LmExactAccGain$ top-1 over no defence at $\times 16$, $\LmExactAccGainCI$ & \ref{sec:learned} \\
-Lineage protects where surface matching cannot & $\LmRechunkDetGain$ top-1 over the best detector, re-chunked $\times 16$, $\LmRechunkDetGainCI$ & \ref{sec:learned} \\
+Lineage protects where surface matching cannot & $\LmRechunkDetGain$ top-1 over the strongest detector, re-chunked $\times 16$, $\LmRechunkDetGainCI$ & \ref{sec:learned} \\
 With fragments only, lineage bounds credit & credit $\LmFragLedgerCredit$ against $\LmFragPlainCredit$, top-1 $\LmFragAccGain$, $\LmFragAccGainCI$ & \ref{sec:learned} \\
 Conservation costs less than no defence & $0.037$ seconds against $0.063$ & \ref{sec:transfer} \\
 \bottomrule
@@ -454,7 +460,7 @@ Conservation costs less than no defence & $0.037$ seconds against $0.063$ & \ref
 The most direct test asks whether a modern reader treats repetition as
 corroboration. Figure~\ref{fig:syndication} and Table~\ref{tab:syndication}
 report the pre-registered experiment, in which one counterfactual paragraph is
-delivered to Qwen2.5-7B-Instruct \citep{qwen2025qwen25} up to sixteen times, and
+delivered to Qwen2.5-7B-Instruct \citep{qwen2025qwen25} up to sixteen times.
 Appendix~\ref{app:syndication} reports every condition.
 
 \begin{figure}[t]
@@ -472,13 +478,13 @@ Without a defence the reader follows the copies. Its gold-answer recall falls
 from $\SyndPlainOne$ with one copy to $\SyndPlainSixteen$ with sixteen, a paired
 change of $\SyndDrop$, interval $\SyndDropCI$, while the rate at which it
 reports the planted answer rises from $\SyndMisledOne$ to $\SyndMisledSixteen$.
-The decline is monotone in the number of copies, which extends the
+That decline is monotone in the number of copies, which extends the
 majority-following of \citet{xie2024chameleon} to manufactured majorities.
 
 Reading from the ledger removes the effect. All copies share one identifier, so
 the reader sees the counterfactual once at every multiplicity. At sixteen copies
-the ledger improves gold recall by $\SyndGain$, interval $\SyndGainCI$,
-recovering the entire loss, and its context stays at $\SyndLedgerTokens$ tokens
+the ledger improves gold recall by $\SyndGain$, interval $\SyndGainCI$, which
+recovers the entire loss. Its context stays at $\SyndLedgerTokens$ tokens
 against $\SyndPlainTokens$, a $\SyndTokenRatio$-fold reduction. All five
 pre-registered predictions hold.
 
@@ -509,9 +515,9 @@ Accounting rule & Gold & Misled & Gold & Misled & Gold & Truth kept & Worst case
 Table~\ref{tab:syndication} shows why near-duplicate detection, the deployed
 defence, cannot substitute for lineage. Canonical hashing
 \citep{lee2022deduplicating} removes byte-identical copies and nothing else, so
-once each copy carries its own outlet framing it behaves like no defence and
-the ledger leads it by $\SyndCanonBoiler$ in gold recall, interval
-$\SyndCanonBoilerCI$, changing the misled rate by $\SyndCanonBoilerMisled$.
+once each copy carries its own outlet framing it behaves like no defence. The
+ledger leads it by $\SyndCanonBoiler$ in gold recall, interval
+$\SyndCanonBoilerCI$, and changes the misled rate by $\SyndCanonBoilerMisled$.
 SimHash \citep{charikar2002simhash} at the published radius
 \citep{manku2007nearduplicate} catches some reworded copies and trails by
 $\SyndSimBoiler$, interval $\SyndSimBoilerCI$.
@@ -565,25 +571,25 @@ Best retrieval score, no requirements & \multicolumn{2}{c}{$\DirReMaxCosStrat$} 
 Keeping requirements separate is what makes support informative. In the
 pre-registered contrast, the weakest requirement's support exceeds the same
 support averaged over requirements by $\DirReROne$ in stratified AUROC,
-interval $\DirReROneCI$, and the averaged form is at chance within every hop
+interval $\DirReROneCI$. The averaged form sits at chance within every hop
 count, because a question can have many relevant sources and still no support
 for one of its hops. When four copies of the top paragraph are appended, the
 lineage-aware directional score exceeds provenance-free scalar counting by
-$\DirReRTwo$, interval $\DirReRTwoCI$. Both pre-registered real-data
-predictions hold, and the retrieval scores that systems commonly report, which
-ignore requirements, fall well below every directional score.
+$\DirReRTwo$, interval $\DirReRTwoCI$. Both pre-registered real-data predictions
+hold, and the retrieval scores that systems commonly report, which ignore
+requirements, fall well below every directional score.
 
-The strongest score keeps each requirement's best single source, and it is
-also directional, exceeding its own average over requirements by
-$\DirReBestVsMean$, interval $\DirReBestVsMeanCI$, in an exploratory contrast.
-Summed support trails it by $\DirReDvsBestMin$, interval $\DirReDvsBestMinCI$,
-because sufficiency is a coverage question. A requirement is met once one
-passage states it, so a second lineage-distinct passage cannot change the
-label. Summation measures corroboration, which this
-label does not reward, and it treats a related passage's partial projection as
-a partial measurement. The best-source rule in turn cannot register a second
-source at all, so where corroboration matters the additive join is needed, and
-the ledger is what lets it credit a second source while ignoring a second copy.
+The strongest score keeps each requirement's best single source, and it is also
+directional, exceeding its own average over requirements by $\DirReBestVsMean$,
+interval $\DirReBestVsMeanCI$, in an exploratory contrast. Summed support trails
+it by $\DirReDvsBestMin$, interval $\DirReDvsBestMinCI$, because sufficiency is
+a coverage question. A requirement is met once one passage states it, so a
+second lineage-distinct passage cannot change the label. Summation measures
+corroboration, which this label does not reward, and it treats a related
+passage's partial projection as a partial measurement. The best-source rule in
+turn cannot register a second source at all, so where corroboration matters the
+additive join is needed, and the ledger is what lets it credit a second source
+while ignoring a second copy.
 
 \subsection{Conservation in a learned memory}
 \label{sec:learned}
@@ -611,7 +617,7 @@ Accounting rule & Clean & Exact & Re-chunked & Fragments & Credit, fragments \\
 \end{tabular}}
 \end{table}
 
-Under exact redelivery the ledger holds its clean accuracy of $\LmLedgerClean$,
+Under exact redelivery the ledger keeps its clean accuracy of $\LmLedgerClean$,
 because a redelivered hop is dropped before it reaches the recurrent content
 path, while the provenance-free control processes every copy and falls to
 $\LmPlainExactSixteen$. The ledger leads it by $\LmExactAccGain$, interval
@@ -623,13 +629,13 @@ byte-identical copies are what they catch.
 Re-chunking separates what lineage does for accuracy from what it does for
 credit. When a paragraph arrives together with windows cut from it, as in an
 index that holds a document and its chunks, the ledger keeps the complete
-rendering, since every window ranks below it, and every other rule loses more
+rendering, since every window ranks below it, while every other rule loses more
 than a quarter of its accuracy. The ledger leads no defence by
-$\LmRechunkAccGain$, interval $\LmRechunkAccGainCI$, and the strongest
-detector, \LmRechunkBestDetector, by $\LmRechunkDetGain$, interval
+$\LmRechunkAccGain$, interval $\LmRechunkAccGainCI$, and the strongest detector,
+\LmRechunkBestDetector, by $\LmRechunkDetGain$, interval
 $\LmRechunkDetGainCI$. When only windows arrive, the ledger can hold only a
-fragment, and as predicted before the run its accuracy is within noise of
-reading every fragment, a difference of $\LmFragAccGain$ with interval
+fragment. Its accuracy then lands within noise of reading every fragment, as
+predicted before the run, a difference of $\LmFragAccGain$ with interval
 $\LmFragAccGainCI$, and of the strongest detector, \LmFragBestDetector, while it
 credits one source where no defence credits sixteen. Lineage therefore always
 bounds credit, and it also protects accuracy whenever a complete rendering of
@@ -644,31 +650,31 @@ The ledger attaches without modification to a message-passing backbone
 \citep{lee2019settransformer}, conserving on each while the provenance-free
 variants track the delivery count. It costs less than no defence, since
 suppressed arrivals never reach the content path, running $4{,}674$ messages in
-$0.037$ seconds against $0.063$, and under benign sixteenfold redelivery a
-frozen Qwen2.5-1.5B-Instruct reader's context stays at
-$\ReaderLedgerExactTokens$ tokens against $\ReaderPlainExactTokens$ with recall
-unchanged (Appendices~\ref{app:fusion} and~\ref{app:transfer}).
+$0.037$ seconds against $0.063$. Under benign sixteenfold redelivery a frozen
+Qwen2.5-1.5B-Instruct reader's context stays at $\ReaderLedgerExactTokens$
+tokens against $\ReaderPlainExactTokens$ with recall unchanged
+(Appendices~\ref{app:fusion} and~\ref{app:transfer}).
+
 
 \section{Limitations}
 \label{sec:limits}
 
-Source identity is not source truth. Nothing here discharges the assumption
-of Section~\ref{sec:arrival} that a supplied identifier corresponds to a
-distinct observation, and Proposition~\ref{prop:indist} shows content alone
-cannot. Eight
-machine paraphrases carrying fabricated identifiers inflate credited evidence
-by $2.673$, which Appendix~\ref{app:sybil} records as a quantified boundary
-rather than as Sybil robustness.
+Source identity is not source truth. Nothing here discharges the assumption of
+Section~\ref{sec:arrival} that a supplied identifier corresponds to a distinct
+observation, and Proposition~\ref{prop:indist} shows content alone cannot. Eight
+machine paraphrases carrying fabricated identifiers inflate credited evidence by
+$2.673$, which Appendix~\ref{app:sybil} records as a quantified boundary rather
+than as Sybil robustness.
 
 The frozen-reader results have two boundaries. When the true paragraph arrives
 first, MinHash suppresses the counterfactual as a near-duplicate of it, and the
 ledger minus MinHash difference is $\SyndMinhashLast$, interval
-$\SyndMinhashLastCI$, the same order dependence that produces its deficit in
-the reverse order. When sixteen copies precede the truth, the ledger changes the
+$\SyndMinhashLastCI$, the same order dependence that produces its deficit in the
+reverse order. When sixteen copies precede the truth, the ledger changes the
 misled rate by $\SyndFirstPlainMisled$, interval $\SyndFirstPlainMisledCI$, and
 gold recall by $\SyndFirstPlainGold$, whose interval $\SyndFirstPlainGoldCI$
-includes zero. Under benign duplication the arms
-are indistinguishable on quality, so the benefit there is efficiency.
+includes zero. Under benign duplication the arms are indistinguishable on
+quality, so the benefit there is efficiency.
 
 On AVeriTeC no variant separates on the official retrieved-track metric, and a
 pre-registered selective-prediction criterion returned a negative decision, a
@@ -680,71 +686,78 @@ The mechanism inherits the lineage its identifiers carry and trusts the version
 a sender asserts. URL-level identifiers do not group a story syndicated across
 outlets (Appendix~\ref{app:sybil}), and a sender who reuses a true source's
 identifier with a higher refinement level can replace its content at unchanged
-credit, so adversarial settings need versions authenticated by the issuer.
+credit. Adversarial settings therefore need versions authenticated by the
+issuer.
 
 The directional evidence is real-data evidence only. In a synthetic learned
-model, directional credit did not beat a scalar whose scale is learned, so two
-of three registered synthetic predictions failed and no synthetic directional
-claim is made (Appendix~\ref{app:directional}). The real-data test uses the
-dataset's question decomposition as its requirement directions, which stands in
-for a decomposer, and its strongest score was registered as a baseline rather
-than as the primary.
+model, directional credit did not beat a scalar whose scale is learned, so two of
+three registered synthetic predictions failed and no synthetic directional claim
+is made (Appendix~\ref{app:directional}). The real-data test uses the dataset's
+question decomposition as its requirement directions, which stands in for a
+decomposer, and its strongest score was registered as a baseline rather than as
+the primary.
 
 \section{Conclusion}
 \label{sec:conclusion}
 
 Repetition is not corroboration, and corroboration has a direction. A memory
-that credits lineage-distinct sources, each only along what it observed,
-shields a frozen reader from a falsehood copied sixteen times without the order
+that credits lineage-distinct sources, each only along what it observed, shields
+a frozen reader from a falsehood copied sixteen times without the order
 dependence that makes near-duplicate detection discard the truth, tells when
 retrieved evidence leaves a requirement unsupported, and keeps a learned
-memory's accuracy under redelivery, with a finite-sample guarantee.
+memory's accuracy under redelivery, with a finite-sample guarantee. The three
+findings share one mechanism, credit bounded by the lineage a message carries
+rather than by how the message looks, so redelivery, re-chunking and fragments
+are all suppressed by the same join. Authenticating version keys against their
+issuer, and supplying identifiers from shared-error signals where provenance
+metadata is absent, remain open.
 
 \label{endofmain}
 
 \subsection*{AI use statement}
 
-Generative tools were used in two distinct roles, and the roles are
-distinguished because only one affects a reported number. As objects of study,
-open models at pinned revisions served as frozen readers and produced the
-paraphrase candidates for the Sybil audit, and Appendix~\ref{app:repro}
-specifies their revisions and decoding settings. As a tool, an assistant
-supported implementation, experimental design, interpretation and prose
-revision. Automated tests check implementation properties and do not replace
-author review of proofs or claims. The authors are responsible for the final
-content, claims and artifacts.
+Generative models are used in this work as objects of study. Open models at
+pinned revisions serve as frozen readers, and Qwen2.5-0.5B generated the eight
+paraphrase candidates per claim that form the Sybil audit of
+Appendix~\ref{app:sybil}, with revisions and decoding settings given in
+Appendix~\ref{app:repro}. That candidate corpus was frozen before any
+evaluation, and a candidate was admitted only after passing a pinned natural
+language inference check in both directions and a surface-similarity threshold.
+The authors reviewed all AI-assisted work and take responsibility for the final
+content of this work, including text, claims or artifacts produced with the aid
+of generative AI.
 
 \subsection*{Ethics statement}
 
 This work uses two public research datasets and involves no human subjects.
 AVeriTeC is used under its released licence and is not redistributed, and
-MuSiQue is used and redistributed under CC BY 4.0. The counterfactual
-paragraphs are generated mechanically from public records, are framed with
-generic outlet labels rather than real organisations, and are released only as
-evaluation artifacts. Section~\ref{sec:limits} reports an attack that fabricates
-source identity, because a defence whose failure mode is quantified is safer
-than one whose failure mode is undocumented. A mechanism that bounds confidence
-could be misread as a guarantee of correctness. The guarantee is that credited
-evidence does not grow under repetition of a stable lineage, and it says nothing
-about whether the underlying source is true.
+MuSiQue is used and redistributed under CC BY 4.0. The counterfactual paragraphs
+are generated mechanically from public records, are framed with generic outlet
+labels rather than real organisations, and are released only as evaluation
+artifacts. Section~\ref{sec:limits} reports an attack that fabricates source
+identity, because a defence whose failure mode is quantified is safer than one
+whose failure mode is undocumented. A mechanism that bounds confidence could be
+misread as a guarantee of correctness. The guarantee is that credited evidence
+does not grow under repetition of a stable lineage, and it says nothing about
+whether the underlying source is true.
 
 \subsection*{Reproducibility statement}
 
-Every number reported here is read from a committed raw output. The
-syndication, reader, directional, learned-memory and taxonomy numbers are
-written by the scripts listed in Appendix~\ref{app:repro}, and the remaining
-numbers are transcribed from the committed reports named there. The theoretical claims are
+Every number reported here is read from a committed raw output. The syndication,
+reader, directional, learned-memory and taxonomy numbers are written by the
+scripts listed in Appendix~\ref{app:repro}, and the remaining numbers are
+transcribed from the committed reports named there. The theoretical claims are
 stated with their assumptions in Appendix~\ref{app:theory}, and every proof
 appears there in full. Appendix~\ref{app:repro} records the hardware, the pinned
 revisions, the seed counts, the parameter counts and the regeneration commands.
 The syndication and directional experiments were pre-registered before any
 output existed, and Appendices~\ref{app:syndication} and~\ref{app:directional}
-report their predictions and decision rules. The MuSiQue corpus ships compressed in the repository with a digest
-manifest. AVeriTeC is not redistributed, and the official knowledge store is
-used in place of live web search. The full source, including the test suite
-that guards the structural properties asserted here, is available
-anonymously.\footnote{Anonymised code and data:
-\url{ANONYMOUS-CODE-URL-TO-BE-INSERTED}. The repository contains the committed
+report their predictions and decision rules. The MuSiQue corpus ships compressed
+in the repository with a digest manifest. AVeriTeC is not redistributed, and the
+official knowledge store is used in place of live web search. The full source,
+including the test suite that guards the structural properties asserted here, is
+available anonymously.\footnote{Anonymised code and data:
+\url{https://github.com/anony123456787654321-eng/ICLR_evnca2212}. The repository contains the committed
 raw outputs, the analysis scripts that produce every table and figure, and the
 pre-registration document.}
 
@@ -886,7 +899,7 @@ populations chosen adaptively in response to the hashes. $\blacksquare$
 \begin{proof}
 Let the ledger $L$ contain root $r$ at version $v$. Delivering $r$ again at any
 version $v'$ replaces the entry with $\arg\max_\kappa\{v,v'\}$. If $v'=v$ the
-result is $v$ by idempotence. If $\rho_{v'}<\rho_v$ then $v$ wins outright. If
+result is $v$ by idempotence. If $\rho_{v'}<\rho_v$ then $v$ is retained. If
 $\rho_{v'}=\rho_v$ the $-m$ coordinate ensures that a version claiming greater
 mass cannot displace the incumbent. In every such case the ledger is unchanged
 as a value, so the credited quantity $\rho_{ir}\Lambda_r$ in
@@ -1072,28 +1085,28 @@ shows what a content-only rule does with it.
 \section{Syndication experiment in full}
 \label{app:syndication}
 
-This appendix reproduces the pre-registered design, reports the outcome of
-every prediction, and tabulates every condition. The pre-registration document
-was committed to the repository before any reader call was made, and the
-verdict below is computed from the per-record outputs by a script that applies
-the committed decision rules mechanically.
+This appendix reproduces the pre-registered design, reports the outcome of every
+prediction, and tabulates every condition. The pre-registration document was
+committed to the repository before any reader call was made, and the verdict
+below is computed from the per-record outputs by a script that applies the
+committed decision rules mechanically.
 
 \paragraph{Question and construction.} \citet{xie2024chameleon} report that
 language models follow the side with more evidence when the supporting pieces
 are distinct texts. The experiment asks whether a frozen reader treats copies of
 one false source as additional evidence, and whether reading from the ledger
 removes that exposure. A record is eligible only if no gold answer or alias
-survives in the counterfactual, the substitute appears in it, and the
-substitute appears in neither true paragraph. Substitutes match the kind of the
-gold answer, whether a year, another number or an entity of similar length,
-since an implausible substitute would be rejected on plausibility alone.
-Reworded copies are framed as ``Outlet $k$ reports'' with a trailing
-syndication marker, so no two copies share bytes while all share one lineage.
+survives in the counterfactual, the substitute appears in it, and the substitute
+appears in neither true paragraph. Substitutes match the kind of the gold
+answer, whether a year, another number or an entity of similar length, since an
+implausible substitute would be rejected on plausibility alone. Reworded copies
+are framed as ``Outlet $k$ reports'' with a trailing syndication marker, so no
+two copies share bytes while all share one lineage.
 
 \paragraph{Fixed in advance.} The reader is Qwen2.5-7B-Instruct
-\citep{qwen2025qwen25} with greedy decoding and $48$ new tokens. The records
-are the first $300$ eligible in file order, and no record was added after any
-output was seen. Intervals use $10{,}000$ bootstrap resamples over records with
+\citep{qwen2025qwen25} with greedy decoding and $48$ new tokens. The records are
+the first $300$ eligible in file order, and no record was added after any output
+was seen. Intervals use $10{,}000$ bootstrap resamples over records with
 percentile bounds. A context-building pass with no reader loaded established
 that MinHash and SimHash can suppress the counterfactual or the true paragraph
 as near-duplicates of each other, which is why the order-dependence prediction
@@ -1119,10 +1132,10 @@ P5, order dependence & Ledger minus MinHash, one copy before the truth, gold & $
 \end{tabular}}
 \end{table}
 
-Table~\ref{tab:prereg} lists the outcomes, and Table~\ref{tab:synd-full}
-reports gold-answer recall in every condition. The ledger's verbatim rows are
-constant across multiplicity by construction, since repeated copies of one root
-are no-ops. The difference between the ledger and no defence at sixteen copies
+Table~\ref{tab:prereg} lists the outcomes, and Table~\ref{tab:synd-full} reports
+gold-answer recall in every condition. The ledger's verbatim rows stay constant
+across multiplicity by construction, since repeated copies of one root are
+no-ops. The difference between the ledger and no defence at sixteen copies
 therefore equals the amount by which repetition moves the reader.
 
 \begin{table}[h]
@@ -1147,30 +1160,30 @@ Accounting rule & Copies & $\times 1$ & $\times 2$ & $\times 4$ & $\times 8$ & $
 \section{Directional credit experiments in full}
 \label{app:directional}
 
-Both experiments follow a pre-registration committed before any output
-existed, together with two dated amendments that were also committed before any
-output. The first amendment appended the copies in the real-data duplicated
-condition to the retrieved set, because exact copies tie with their original
-under cosine retrieval and would otherwise fill every slot and make the label
-constant. The second followed an independent audit of the design. It added a
-scalar arm whose overall scale is learned, which became the primary synthetic
-comparator, and it stratified the primary real-data test by hop count and added
-hop count, best-single-source and retrieval-score baselines, because the number
-of decomposition steps equals the number of supporting paragraphs and hop count
+Both experiments follow a pre-registration committed before any output existed,
+together with two dated amendments that were also committed before any output.
+The first amendment appended the copies in the real-data duplicated condition to
+the retrieved set, because exact copies tie with their original under cosine
+retrieval and would otherwise fill every slot and make the label constant. The
+second followed an independent audit of the design. It added a scalar arm whose
+overall scale is learned, which became the primary synthetic comparator. It also
+stratified the primary real-data test by hop count and added hop count,
+best-single-source and retrieval-score baselines, because the number of
+decomposition steps equals the number of supporting paragraphs and hop count
 alone predicts sufficiency. \path{analysis/directional_analysis.py} applies the
 registered rules to the committed outputs.
 
 \paragraph{Synthetic.} The task is the evidence graph of
 Appendix~\ref{app:transfer}, with a four-dimensional latent, three roots, eight
 cells on a path, eight message steps, $4{,}000$ training iterations and five
-seeds. Sources observe one, two or four directions. Every arm shares one
-content path. Directional credit uses each root's precision, the scalar arms
-use $\tfrac{1}{d}\mathrm{tr}(\Lambda_r)I$, and the fitted scalar arm multiplies
-that by a learned global scale. Table~\ref{tab:directional-synthetic} reports
-the negative log-likelihood of the true latent. Directional credit has the
-lowest error at every rank, but its registered advantage over the fitted scalar
-at rank one, $\DirSynSOne$ nats with interval $\DirSynSOneCI$, does not exclude
-zero, and the advantage grows rather than shrinks with rank, so the registered
+seeds. Sources observe one, two or four directions. Every arm shares one content
+path. Directional credit uses each root's precision, the scalar arms use
+$\tfrac{1}{d}\mathrm{tr}(\Lambda_r)I$, and the fitted scalar arm multiplies that
+by a learned global scale. Table~\ref{tab:directional-synthetic} reports the
+negative log-likelihood of the true latent. Directional credit has the lowest
+error at every rank, but its registered advantage over the fitted scalar at rank
+one, $\DirSynSOne$ nats with interval $\DirSynSOneCI$, does not exclude zero,
+and the advantage grows rather than shrinks with rank, so the registered
 predictions S1 and S3 fail and no synthetic directional claim is made. The
 lineage prediction S2 holds, with $\DirSynSTwo$ nats, interval $\DirSynSTwoCI$.
 
@@ -1197,11 +1210,11 @@ Credit & Rank 1 & Rank 2 & Rank 4 & Rank 1, $\times 16$ & $95\%$ coverage \\
 \texttt{bge-base-en-v1.5} \citep{xiao2023bge} at a pinned revision, with the
 retrieval instruction applied to queries only. Intervals come from $10{,}000$
 paired bootstrap resamples over records, resampled within hop strata for the
-stratified tests. Table~\ref{tab:directional-musique} reports every score.
-The best-single-source scores use the cosine rather than its square. Every
-record's best cosine is at least $\DirReBestFloor$, so the two order records
-identically, and the score is the rank-one support of the single best source,
-the conservative form $\gamma^\vee$ of Appendix~\ref{app:theory}. The contrast
+stratified tests. Table~\ref{tab:directional-musique} reports every score. The
+best-single-source scores use the cosine rather than its square. Every record's
+best cosine is at least $\DirReBestFloor$, so the two order records identically,
+and the score is the rank-one support of the single best source, the
+conservative form $\gamma^\vee$ of Appendix~\ref{app:theory}. The contrast
 between its weakest and mean requirement was not registered and is reported as
 exploratory. Pooled over hop counts, the best-source score reaches
 $\DirReBestMinPooled$, above hop count alone at $\DirReHopsPooled$.
@@ -1246,19 +1259,19 @@ its paragraph's content, so it ranks below the paragraph in the version key by
 the number of words it omits. The ledger therefore holds the whole paragraph and
 its content path sees exactly the clean stream, while credit, which counts
 identifiers, is unaffected. Exact hashing admits every window as a new source,
-the near-duplicate detectors admit those they do not judge similar to an
-earlier arrival, and the provenance-free control processes all of them. The
-detectors suppress some windows, as their credit in Table~\ref{tab:taxonomy}
-shows, but the windows they admit move the content path about as far as all
-sixteen renderings move the undefended memory.
+the near-duplicate detectors admit those they do not judge similar to an earlier
+arrival, and the provenance-free control processes all of them. The detectors
+suppress some windows, as their credit in Table~\ref{tab:taxonomy} shows, but
+the windows they admit move the content path about as far as all sixteen
+renderings move the undefended memory.
 
 \paragraph{Fragments.} The same windows arrive without the paragraph, $m$ of
-them at multiplicity $m$, so no complete rendering exists and every rule,
-the ledger included, can hold only a fragment. The two predictions, credit of
-exactly one unit per source and an accuracy difference against no defence whose
-interval includes zero at sixteenfold, were committed before any output of this
-regime existed, and both hold. A window that outranks the one held replaces it
-and reaches the content path, so at sixteenfold $\LmFragLedgerReach$ of
+them at multiplicity $m$, so no complete rendering exists and every rule, the
+ledger included, can hold only a fragment. Two predictions were committed before
+any output of this regime existed, namely credit of exactly one unit per source
+and an accuracy difference against no defence whose interval includes zero at
+sixteenfold, and both hold. A window that outranks the one held replaces it and
+reaches the content path, so at sixteenfold $\LmFragLedgerReach$ of
 $\LmFragArrivals$ arrivals per record reach the ledger's content path, which is
 why its accuracy is lower at sixteenfold than at fourfold. An earlier
 fragments-only run with at most three distinct windows gave the same result, a
@@ -1324,12 +1337,11 @@ sixteen deliveries this is $1.99997$, and it approaches $1/m = 2$ as $n$ grows.
 Covariance intersection \citep{julier1997ci} assigns each root a convex weight,
 so a root receives the fraction of all arrivals that it contributed. Under
 uniform duplication of $R$ roots each receives $1/R$. Because the three arms
-share one content path, their task predictions are identical in every
-condition, and the repository verifies that identity directly. The
-best-single-source score of Section~\ref{sec:directional} is covariance
-intersection along each requirement and shares its profile. It is idempotent,
-so copies cannot inflate it, and it is not additive, so a second
-lineage-distinct source cannot raise it.
+share one content path, their task predictions are identical in every condition,
+and the repository verifies that identity directly. The best-single-source score
+of Section~\ref{sec:directional} is covariance intersection along each
+requirement and shares its profile. It is idempotent, so copies cannot inflate
+it, and it is not additive, so a second lineage-distinct source cannot raise it.
 
 \section{Transfer across backbones and cost}
 \label{app:transfer}
@@ -1414,8 +1426,8 @@ two-hop records.
 \section{Semantic-Sybil audit}
 \label{app:sybil}
 
-The audit measures how far fabricated identities can inflate credited
-evidence when each fabricated source carries a meaning-preserving paraphrase.
+Fabricated identities can inflate credited evidence, and the audit measures how
+far they do when each fabricated source carries a meaning-preserving paraphrase.
 
 \paragraph{Generation and acceptance.} For each of $\SybPopulation$ AVeriTeC
 claims, eight paraphrase candidates of the source are generated with
@@ -1432,8 +1444,7 @@ $\SybThreshold$ is fitted on training pairs only, under a maximum false-link
 budget of $0.5\%$ fixed in advance. On $\SybPositivePairs$ positive and
 $\SybNegativePairs$ negative training pairs it attains recall $\SybRecall$ at a
 realised false-link rate of $\SybFalseLinkPct\%$. Of $\SybPopulation$ claims,
-$\SybEligible$ retain enough accepted paraphrases to support multiplicity
-eight.
+$\SybEligible$ retain enough accepted paraphrases to support multiplicity eight.
 
 \begin{table}[h]
 \centering\small
@@ -1451,7 +1462,7 @@ Grouping & Multiplicity & Credit ratio & $95\%$ interval & NLL & Flip rate \\
 \end{table}
 
 Table~\ref{tab:sybil} shows that semantic grouping reduces the attack
-substantially relative to identifier-based grouping, from $4.567$ to $2.673$ at
+relative to identifier-based grouping, from $4.567$ to $2.673$ at
 multiplicity eight, and that no grouping restores exact conservation. The
 negative log-likelihood moves little across multiplicities, so fabricated
 identities inflate credit more than they move the prediction.
@@ -1501,5 +1512,4 @@ their verdict.
 \path{analysis/conservation_figures.py} produce Table~\ref{tab:taxonomy} and
 Figure~\ref{fig:backbones}.
 \end{itemize}
-
 \end{document}
